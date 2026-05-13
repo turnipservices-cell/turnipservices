@@ -3,23 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Purple Background Full Height</title>
+<title>Full Purple Background</title>
 
 <style>
-  /* Make sure the page itself stretches */
+  /* IMPORTANT: remove default spacing */
   html, body {
-    height: 100%;
     margin: 0;
+    padding: 0;
+    height: 100%;
   }
 
-  /* Full-page background */
+  /* Make sure body always fills screen */
   body {
-    background-color: purple;
-  }
-
-  /* If you're using a container instead of body */
-  .container {
-    min-height: 100vh; /* key part */
+    min-height: 100vh;
     background-color: purple;
   }
 </style>
@@ -27,17 +23,9 @@
 
 <body>
 
-  <!-- Option A: background on body -->
-  <h1 style="color: white; text-align: center; padding-top: 50px;">
+  <h1 style="color:white; text-align:center; margin-top:50px;">
     Hello
   </h1>
-
-  <!-- Option B: if you use a wrapper instead -->
-  <!--
-  <div class="container">
-    <h1>Hello</h1>
-  </div>
-  -->
 
 </body>
 </html>
