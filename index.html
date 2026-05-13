@@ -6,53 +6,51 @@
     <title>Turnip Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .big-circle {
-            width: 620px;
-            height: 620px;
+        .split-circle {
+            width: 640px;
+            height: 640px;
             background: linear-gradient(to bottom, #ffffff 50%, #7c3aed 50%);
-            border: 6px solid black;
+            border: 8px solid #111827;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
         }
-        .top-half { color: black; }
-        .bottom-half { color: white; }
     </style>
 </head>
-<body class="bg-white overflow-hidden">
+<body class="bg-white">
 
     <!-- Navigation -->
-    <nav class="pt-8 pb-6 border-b">
+    <nav class="pt-8 pb-6">
         <div class="max-w-6xl mx-auto px-8 flex justify-between items-center">
             <div class="flex gap-4">
-                <button class="px-7 py-3 border-2 border-black rounded-3xl font-medium text-lg">Help</button>
-                <button class="px-7 py-3 border-2 border-black rounded-3xl font-medium text-lg">About</button>
+                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">Help</button>
+                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">About</button>
             </div>
             
             <div class="flex gap-4">
-                <button class="px-7 py-3 border-2 border-black rounded-3xl font-medium text-lg">Media</button>
-                <button class="px-7 py-3 bg-black text-white rounded-3xl font-medium text-lg">Login/SignUp</button>
+                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">Media</button>
+                <button class="px-8 py-3 bg-black text-white rounded-3xl font-medium text-lg">Login/SignUp</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <div class="min-h-screen bg-[#7c3aed] flex items-center justify-center relative">
-        <div class="big-circle mx-auto">
+    <div class="min-h-screen bg-[#7c3aed] flex items-center justify-center pt-10">
+        <div class="split-circle">
             <div class="text-center px-12">
-                <h1 class="text-5xl font-bold top-half">Welcome to</h1>
-                <h1 class="text-6xl md:text-7xl font-bold bottom-half leading-none mt-2">Turnip Services!</h1>
+                <h1 class="text-5xl font-bold text-black mb-4">Welcome to</h1>
+                <h1 class="text-6xl md:text-7xl font-bold text-black leading-none">Turnip Services!</h1>
                 
                 <div class="mt-16">
-                    <p class="text-white text-xl mb-4">Search for products</p>
-                    <div class="max-w-md mx-auto">
+                    <p class="text-white text-xl mb-4 font-medium">Search for products</p>
+                    <div class="max-w-lg mx-auto">
                         <input 
                             type="text" 
                             placeholder="" 
-                            class="w-full px-8 py-5 rounded-full border-4 border-black focus:outline-none text-lg">
+                            class="w-full px-10 py-6 rounded-full border-4 border-black text-lg focus:outline-none">
                     </div>
                 </div>
             </div>
