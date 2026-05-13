@@ -3,59 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnip Services - Premium Gaming Gear</title>
+    <title>Turnip Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        .hero-circle {
-            background: linear-gradient(135deg, #6b21a8, #a855f7);
+        .purple-circle {
+            width: 520px;
+            height: 520px;
+            background: #6b21a8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-white">
 
-    <!-- Top Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <a href="#" class="text-2xl font-bold text-purple-700">Turnip Services</a>
+    <!-- Navigation -->
+    <nav class="bg-white border-b py-5 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
+            <div class="flex gap-6">
+                <button class="px-6 py-2 border border-gray-800 rounded-full font-medium">Help</button>
+                <button class="px-6 py-2 border border-gray-800 rounded-full font-medium">About</button>
             </div>
             
-            <div class="flex items-center gap-6 text-sm font-medium">
-                <a href="#" class="px-5 py-2 hover:bg-gray-100 rounded-full transition">Help</a>
-                <a href="#" class="px-5 py-2 hover:bg-gray-100 rounded-full transition">About</a>
-                <a href="#" class="px-5 py-2 hover:bg-gray-100 rounded-full transition">Media</a>
-                <a href="#" class="px-6 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Login / Sign Up</a>
+            <div class="flex gap-6">
+                <button class="px-6 py-2 border border-gray-800 rounded-full font-medium">Media</button>
+                <button class="px-6 py-2 bg-black text-white rounded-full font-medium">Login / Sign Up</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-purple-950 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center px-6">
-            <!-- Big Circle -->
-            <div class="hero-circle mx-auto w-[520px] h-[520px] rounded-full flex items-center justify-center relative">
-                <div class="text-center">
-                    <h1 class="text-5xl font-bold text-white mb-3">Welcome to</h1>
-                    <h1 class="text-7xl font-bold text-white tracking-tight">Turnip Services!</h1>
+    <!-- Hero with Big Purple Circle -->
+    <section class="min-h-screen flex items-center justify-center pt-10">
+        <div class="text-center">
+            <div class="purple-circle mx-auto">
+                <div class="text-center px-10">
+                    <h1 class="text-5xl font-bold text-white mb-2">Welcome to</h1>
+                    <h1 class="text-6xl font-bold text-white leading-none">Turnip Services!</h1>
                     
                     <div class="mt-12">
-                        <p class="text-white/90 text-lg mb-3">Search for products</p>
-                        <div class="relative max-w-md mx-auto">
+                        <p class="text-white text-lg mb-3">Search for products</p>
+                        <div class="relative max-w-xs mx-auto">
                             <input 
                                 type="text" 
-                                placeholder="Gaming Headsets, Keyboards, Mice..." 
-                                class="w-full px-8 py-5 rounded-full text-lg focus:outline-none focus:ring-4 focus:ring-purple-300">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-white text-purple-700 px-8 py-3 rounded-full font-semibold hover:bg-purple-100 transition">
-                                Search
-                            </button>
+                                placeholder="Headsets, Keyboards, Mice..." 
+                                class="w-full px-6 py-4 rounded-full text-center focus:outline-none">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Scroll prompt -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center">
-            <p class
+</body>
+</html>
