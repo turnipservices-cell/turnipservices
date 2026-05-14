@@ -1,61 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnip Services</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .split-circle {
-            width: 640px;
-            height: 640px;
-            background: linear-gradient(to bottom, #ffffff 50%, #7c3aed 50%);
-            border: 8px solid #111827;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-</head>
-<body class="bg-white">
+<!-- Hero Section -->
+<div class="h-[80vh] flex flex-col">
 
-    <!-- Navigation -->
-    <nav class="pt-8 pb-6">
-        <div class="max-w-6xl mx-auto px-8 flex justify-between items-center">
-            <div class="flex gap-4">
-                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">Help</button>
-                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">About</button>
-            </div>
-            
-            <div class="flex gap-4">
-                <button class="px-8 py-3 border-2 border-black rounded-3xl font-medium text-lg">Media</button>
-                <button class="px-8 py-3 bg-black text-white rounded-3xl font-medium text-lg">Login/SignUp</button>
-            </div>
-        </div>
-    </nav>
+    <!-- White Top Section (higher now) -->
+    <div class="bg-white h-[55%] flex items-end justify-center pb-6">
 
-    <!-- Hero -->
-    <div class="min-h-screen bg-[#7c3aed] flex items-center justify-center pt-10">
-        <div class="split-circle">
-            <div class="text-center px-12">
-                <h1 class="text-5xl font-bold text-black mb-4">Welcome to</h1>
-                <h1 class="text-6xl md:text-7xl font-bold text-black leading-none">Turnip Services!</h1>
-                
-                <div class="mt-16">
-                    <p class="text-white text-xl mb-4 font-medium">Search for products</p>
-                    <div class="max-w-lg mx-auto">
-                        <input 
-                            type="text" 
-                            placeholder="" 
-                            class="w-full px-10 py-6 rounded-full border-4 border-black text-lg focus:outline-none">
-                    </div>
-                </div>
-            </div>
+        <div class="text-center">
+
+            <h1 class="text-6xl md:text-7xl font-bold text-black">
+                Welcome to
+            </h1>
+
+            <h1 class="text-6xl md:text-7xl font-bold text-black -mt-2">
+                Turnip Services!
+            </h1>
+
         </div>
+
     </div>
 
-</body>
-</html>
+    <!-- Purple Bottom Section -->
+    <div class="bg-[#6b21a8] h-[45%] flex items-center justify-center">
+
+        <div class="text-center px-6">
+
+            <p class="text-white text-xl mb-6">
+                Search for products
+            </p>
+
+            <!-- Search Box -->
+            <div class="relative max-w-md mx-auto">
+
+                <input 
+                    type="text"
+                    placeholder=""
+                    class="w-full px-6 py-5 pl-14 rounded-full border-4 border-black text-lg focus:outline-none bg-white"
+                >
+
+                <!-- Search Icon -->
+                <div class="absolute left-6 top-1/2 -translate-y-1/2 text-black text-2xl">
+                    🔍
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
