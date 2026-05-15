@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Turnip Services</title>
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
   <style>
@@ -20,6 +18,7 @@
   </style>
 </head>
 <body class="bg-gray-100 font-sans">
+
   <!-- NAVBAR -->
   <nav class="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -33,12 +32,11 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="bg-white text-center py-32">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-7xl font-black text-black leading-tight">
-        Welcome to <br />
-        Turnip Services!
+        Welcome to <br /> Turnip Services!
       </h2>
     </div>
   </section>
@@ -48,7 +46,6 @@
     <div class="flex flex-col items-center px-6">
       <p class="text-white text-4xl mb-10 font-medium">Search games</p>
       
-      <!-- Search Bar -->
       <div class="relative w-full max-w-[550px]">
         <input
           type="text"
@@ -59,9 +56,7 @@
         <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
       </div>
 
-      <!-- Results Container -->
       <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Games will appear here -->
       </div>
     </div>
   </section>
@@ -72,37 +67,36 @@
   </footer>
 
   <script>
-    // Updated Games List
     const games = [
       {
         title: "Rainbow Six Siege",
         genre: "Tactical Shooter",
-        image: "https://picsum.photos/id/1015/300/200"
+        image: "https://images.unsplash.com/photo-1616588587684-4b4c0c5d5d5d"  // Famous Siege operators
       },
       {
         title: "Apex Legends",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/201/300/200"
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e"  // Apex action shot
       },
       {
         title: "Call of Duty: Warzone",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/180/300/200"
+        image: "https://images.unsplash.com/photo-1542546068979-8a3c0c4e5f5e"  // Warzone style
       },
       {
         title: "Minecraft",
         genre: "Sandbox Survival",
-        image: "https://picsum.photos/id/133/300/200"
+        image: "https://images.unsplash.com/photo-1585208798174-6cedd78e3e9f"  // Classic Minecraft
       },
       {
         title: "Valorant",
         genre: "Tactical Shooter",
-        image: "https://picsum.photos/id/251/300/200"
+        image: "https://images.unsplash.com/photo-1616587226960-4a03badbe8bf"  // Valorant agents
       },
       {
         title: "Fortnite",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/237/300/200"
+        image: "https://images.unsplash.com/photo-1611996575749-79a3ae2c8f9f"  // Fortnite vibrant
       }
     ];
 
@@ -111,7 +105,6 @@
 
     function displayGames(filteredGames) {
       resultsContainer.innerHTML = '';
-
       if (filteredGames.length === 0) {
         resultsContainer.innerHTML = `
           <div class="col-span-full text-center py-20">
@@ -136,23 +129,16 @@
       });
     }
 
-    // Live Search
     if (searchInput) {
       searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase().trim();
-        
         const filtered = games.filter(game => 
           game.title.toLowerCase().includes(query) || 
           game.genre.toLowerCase().includes(query)
         );
-
         displayGames(filtered);
       });
-
-      // Show all games when page loads
       displayGames(games);
-    } else {
-      console.error("Search input not found!");
     }
   </script>
 </body>
