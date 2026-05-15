@@ -16,9 +16,8 @@
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     .game-card img {
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      width: 100%;
     }
   </style>
 </head>
@@ -61,7 +60,8 @@
         <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
       </div>
 
-      <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+      <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      </div>
     </div>
   </section>
 
@@ -75,32 +75,32 @@
       {
         title: "Rainbow Six Siege",
         genre: "Tactical Shooter",
-        image: "https://www.reddit.com/r/Rainbow6/comments/rtskjc/this_was_the_best_loading_screenchange_my_mind/#lightbox"
+        image: "https://images.unsplash.com/photo-1542751111-2d6e6f5f5f5f"
       },
       {
         title: "Apex Legends",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/870/800/600"
+        image: "https://images.unsplash.com/photo-1616588587684-4b4c0c5d5d5d"
       },
       {
         title: "Call of Duty: Warzone",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/106/800/600"
+        image: ""
       },
       {
         title: "Minecraft",
         genre: "Sandbox Survival",
-        image: "https://picsum.photos/id/133/800/600"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7paH4lHrhStYkG7veyhlZpvS1VRgbmhacQ&s"
       },
       {
         title: "Valorant",
         genre: "Tactical Shooter",
-        image: "https://picsum.photos/id/201/800/600"
+        image: "https://i.redd.it/s5df0ihs55981.jpg"
       },
       {
         title: "Fortnite",
         genre: "Battle Royale",
-        image: "https://picsum.photos/id/180/800/600"
+        image: "https://images.unsplash.com/photo-1611996575749-79a3ae2c8f9f"
       }
     ];
 
@@ -123,7 +123,7 @@
         const card = document.createElement('div');
         card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
         card.innerHTML = `
-          <img src="${game.image}" alt="${game.title}">
+          <img src="${game.image}" alt="${game.title}" class="w-full">
           <div class="p-5">
             <h3 class="font-bold text-xl mb-1">${game.title}</h3>
             <p class="text-purple-600 font-medium">${game.genre}</p>
