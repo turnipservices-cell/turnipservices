@@ -1,18 +1,40 @@
   <script>
-    // Sample Games Data
+    // Updated Games Data
     const games = [
-      { title: "Stardew Valley", genre: "Farming Simulator", image: "https://picsum.photos/id/1015/300/200" },
-      { title: "Turnip Boy Commits Tax Evasion", genre: "Adventure", image: "https://picsum.photos/id/237/300/200" },
-      { title: "Animal Crossing: New Horizons", genre: "Life Simulation", image: "https://picsum.photos/id/201/300/200" },
-      { title: "The Legend of Zelda: Breath of the Wild", genre: "Action Adventure", image: "https://picsum.photos/id/180/300/200" },
-      { title: "Hollow Knight", genre: "Metroidvania", image: "https://picsum.photos/id/251/300/200" },
-      { title: "Celeste", genre: "Platformer", image: "https://picsum.photos/id/133/300/200" }
+      {
+        title: "Rainbow Six Siege",
+        genre: "Tactical Shooter",
+        image: "https://picsum.photos/id/1015/300/200"
+      },
+      {
+        title: "Apex Legends",
+        genre: "Battle Royale",
+        image: "https://picsum.photos/id/201/300/200"
+      },
+      {
+        title: "Call of Duty: Warzone",
+        genre: "Battle Royale",
+        image: "https://picsum.photos/id/180/300/200"
+      },
+      {
+        title: "Minecraft",
+        genre: "Sandbox Survival",
+        image: "https://picsum.photos/id/133/300/200"
+      },
+      {
+        title: "Valorant",
+        genre: "Tactical Shooter",
+        image: "https://picsum.photos/id/251/300/200"
+      },
+      {
+        title: "Fortnite",
+        genre: "Battle Royale",
+        image: "https://picsum.photos/id/237/300/200"
+      }
     ];
 
     const searchInput = document.getElementById('searchInput');
     const resultsContainer = document.getElementById('results');
-
-    console.log("Script loaded - searchInput:", !!searchInput); // Debug line
 
     function displayGames(filteredGames) {
       resultsContainer.innerHTML = '';
@@ -42,22 +64,17 @@
     }
 
     // Live Search
-    if (searchInput) {
-      searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase().trim();
-        console.log("Searching for:", query);   // Debug
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
 
-        const filtered = games.filter(game => 
-          game.title.toLowerCase().includes(query) || 
-          game.genre.toLowerCase().includes(query)
-        );
+      const filtered = games.filter(game => 
+        game.title.toLowerCase().includes(query) || 
+        game.genre.toLowerCase().includes(query)
+      );
 
-        displayGames(filtered);
-      });
+      displayGames(filtered);
+    });
 
-      // Show all games on load
-      displayGames(games);
-    } else {
-      console.error("Search input not found!");
-    }
+    // Show all games on load
+    displayGames(games);
   </script>
