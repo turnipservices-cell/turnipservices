@@ -1,113 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turnip Services</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
-  <style>
-    .game-card {
-      transition: all 0.3s ease;
-    }
-    .game-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    }
-  </style>
-</head>
-<body class="bg-gray-100 font-sans">
-  <!-- NAVBAR -->
-  <nav class="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <h1 class="text-3xl font-bold text-black">Turnip Services</h1>
-      <div class="flex items-center gap-5">
-        <a href="#" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Help</a>
-        <a href="#" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">About</a>
-        <a href="#" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Media</a>
-        <a href="#" class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">Login/SignUp</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <section class="bg-white text-center py-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-7xl font-black text-black leading-tight">
-        Welcome to <br />
-        Turnip Services!
-      </h2>
-    </div>
-  </section>
-
-  <!-- SEARCH SECTION -->
-  <section class="bg-purple-700 py-20">
-    <div class="flex flex-col items-center px-6">
-      <p class="text-white text-4xl mb-10 font-medium">Search games</p>
-      
-      <!-- Search Bar -->
-      <div class="relative w-full max-w-[550px]">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search for games..."
-          class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg"
-        />
-        <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
-      </div>
-
-      <!-- Results Container -->
-      <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Games will be injected here by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-8">
-    <p class="text-lg">© 2026 Turnip Services. All Rights Reserved.</p>
-  </footer>
-
   <script>
-    // Sample Games Data - Replace with your real data later
+    // Sample Games Data
     const games = [
-      {
-        title: "Stardew Valley",
-        genre: "Farming Simulator",
-        image: "https://picsum.photos/id/1015/300/200"
-      },
-      {
-        title: "Turnip Boy Commits Tax Evasion",
-        genre: "Adventure",
-        image: "https://picsum.photos/id/237/300/200"
-      },
-      {
-        title: "Animal Crossing: New Horizons",
-        genre: "Life Simulation",
-        image: "https://picsum.photos/id/201/300/200"
-      },
-      {
-        title: "The Legend of Zelda: Breath of the Wild",
-        genre: "Action Adventure",
-        image: "https://picsum.photos/id/180/300/200"
-      },
-      {
-        title: "Hollow Knight",
-        genre: "Metroidvania",
-        image: "https://picsum.photos/id/251/300/200"
-      },
-      {
-        title: "Celeste",
-        genre: "Platformer",
-        image: "https://picsum.photos/id/133/300/200"
-      }
+      { title: "Stardew Valley", genre: "Farming Simulator", image: "https://picsum.photos/id/1015/300/200" },
+      { title: "Turnip Boy Commits Tax Evasion", genre: "Adventure", image: "https://picsum.photos/id/237/300/200" },
+      { title: "Animal Crossing: New Horizons", genre: "Life Simulation", image: "https://picsum.photos/id/201/300/200" },
+      { title: "The Legend of Zelda: Breath of the Wild", genre: "Action Adventure", image: "https://picsum.photos/id/180/300/200" },
+      { title: "Hollow Knight", genre: "Metroidvania", image: "https://picsum.photos/id/251/300/200" },
+      { title: "Celeste", genre: "Platformer", image: "https://picsum.photos/id/133/300/200" }
     ];
 
     const searchInput = document.getElementById('searchInput');
     const resultsContainer = document.getElementById('results');
+
+    console.log("Script loaded - searchInput:", !!searchInput); // Debug line
 
     function displayGames(filteredGames) {
       resultsContainer.innerHTML = '';
@@ -136,20 +41,23 @@
       });
     }
 
-    // Real-time search
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase().trim();
-      
-      const filtered = games.filter(game => 
-        game.title.toLowerCase().includes(query) || 
-        game.genre.toLowerCase().includes(query)
-      );
+    // Live Search
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
+        console.log("Searching for:", query);   // Debug
 
-      displayGames(filtered);
-    });
+        const filtered = games.filter(game => 
+          game.title.toLowerCase().includes(query) || 
+          game.genre.toLowerCase().includes(query)
+        );
 
-    // Show all games when page loads
-    displayGames(games);
+        displayGames(filtered);
+      });
+
+      // Show all games on load
+      displayGames(games);
+    } else {
+      console.error("Search input not found!");
+    }
   </script>
-</body>
-</html>
