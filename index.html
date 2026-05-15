@@ -16,8 +16,9 @@
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     .game-card img {
-      height: 200px;
+      height: 210px;
       object-fit: cover;
+      width: 100%;
     }
   </style>
 </head>
@@ -75,32 +76,32 @@
       {
         title: "Rainbow Six Siege",
         genre: "Tactical Shooter",
-        image: "https://images.unsplash.com/photo-1542751111-2d6e6f5f5f5f"  // Better Siege tactical image
+        image: "https://picsum.photos/id/1015/800/600"   // Tactical / operator style
       },
       {
         title: "Apex Legends",
         genre: "Battle Royale",
-        image: "https://images.unsplash.com/photo-1616588587684-4b4c0c5d5d5d"
+        image: "https://picsum.photos/id/201/800/600"    // Action / legends
       },
       {
         title: "Call of Duty: Warzone",
         genre: "Battle Royale",
-        image: "https://images.unsplash.com/photo-1542546068979-8a3c0c4e5f5e"
+        image: "https://picsum.photos/id/180/800/600"    // Military / warzone feel
       },
       {
         title: "Minecraft",
         genre: "Sandbox Survival",
-        image: "https://images.unsplash.com/photo-1585208798174-6cedd78e3e9f"
+        image: "https://picsum.photos/id/133/800/600"    // Blocky / iconic
       },
       {
         title: "Valorant",
         genre: "Tactical Shooter",
-        image: "https://images.unsplash.com/photo-1616587226960-4a03badbe8bf"
+        image: "https://picsum.photos/id/251/800/600"    // Agent / tactical
       },
       {
         title: "Fortnite",
         genre: "Battle Royale",
-        image: "https://images.unsplash.com/photo-1611996575749-79a3ae2c8f9f"
+        image: "https://picsum.photos/id/237/800/600"    // Colorful / battle
       }
     ];
 
@@ -123,7 +124,7 @@
         const card = document.createElement('div');
         card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
         card.innerHTML = `
-          <img src="${game.image}" alt="${game.title}" class="w-full">
+          <img src="${game.image}" alt="${game.title}">
           <div class="p-5">
             <h3 class="font-bold text-xl mb-1">${game.title}</h3>
             <p class="text-purple-600 font-medium">${game.genre}</p>
