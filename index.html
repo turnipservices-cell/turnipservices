@@ -1,227 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turnip Services</title>
+<!-- MEDIA -->
+<section id="media" class="py-24 bg-white">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <div class="max-w-6xl mx-auto px-6 text-center">
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    <h2 class="text-5xl font-bold mb-12">
+      Media
+    </h2>
 
-    .game-card {
-      transition: all 0.3s ease;
-    }
+    <p class="text-xl text-gray-600 mb-12">
+      Latest official game trailers and previews.
+    </p>
 
-    .game-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-                  0 8px 10px -6px rgb(0 0 0 / 0.1);
-    }
+    <!-- TRAILER GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-    .game-card img {
-      height: 220px;
-      object-fit: cover;
-      width: 100%;
-    }
-  </style>
-</head>
-
-<body class="bg-gray-100 font-sans">
-
-  <!-- NAVBAR -->
-  <nav class="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
-      <h1 class="text-3xl font-bold text-black cursor-pointer" onclick="window.location.reload()">
-        Turnip Services
-      </h1>
-
-      <div class="flex items-center gap-5">
-
-        <a href="#help" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Help</a>
-        <a href="#about" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">About</a>
-        <a href="#media" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Media</a>
-
-        <button onclick="showLoginModal()"
-          class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">
-          Login/SignUp
-        </button>
-
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="bg-white text-center py-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-7xl font-black text-black leading-tight">
-        Welcome to <br /> Turnip Services!
-      </h2>
-    </div>
-  </section>
-
-  <!-- SEARCH SECTION -->
-  <section class="bg-purple-700 py-20">
-
-    <div class="flex flex-col items-center px-6">
-
-      <p class="text-white text-4xl mb-10 font-medium">Search games</p>
-
-      <div class="relative w-full max-w-[550px]">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search for games..."
-          class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg"
-        />
-
-        <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
+      <!-- Rainbow Six Siege -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/6wlvYh0h63k"
+          title="Rainbow Six Siege"
+          allowfullscreen>
+        </iframe>
       </div>
 
-      <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+      <!-- Apex Legends -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/UMJb_mkqynU"
+          title="Apex Legends"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-    </div>
+      <!-- Call of Duty Warzone -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/0E44DClsX5Q"
+          title="Warzone"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  </section>
+      <!-- Minecraft -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/MmB9b5njVbA"
+          title="Minecraft"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">About Us</h2>
-      <p class="text-xl text-gray-600">
-        Turnip Services is a gaming-focused platform where players can discover digital products, gaming tools, in-game services, and custom content designed to improve their overall gaming experience. Our goal is to provide fast, reliable, and easy-to-access services for the gaming community while building a modern platform that gamers can trust and enjoy using every day. Thank you for choosing us
-      </p>
-    </div>
-  </section>
+      <!-- Valorant -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/e_E9W2vsRbQ"
+          title="Valorant"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-  <!-- MEDIA -->
-  <section id="media" class="py-24 bg-white">
-
-    <div class="max-w-6xl mx-auto px-6 text-center">
-
-      <h2 class="text-5xl font-bold mb-12">Media</h2>
-
-      <p class="text-xl text-gray-600 mb-12">
-        Latest official game trailers and previews.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/6wlvYh0h63k"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/UMJb_mkqynU"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/0E44DClsX5Q"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/MmB9b5njVbA"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/e_E9W2vsRbQ"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-          <iframe class="w-full h-full"
-            src="https://www.youtube.com/embed/2gUtfBmw86Y"
-            allowfullscreen></iframe>
-        </div>
-
+      <!-- Fortnite (official trailer) -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/2gUtfBmw86Y"
+          title="Fortnite"
+          allowfullscreen>
+        </iframe>
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- HELP -->
-  <section id="help" class="py-24 bg-gray-100">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">Need Help?</h2>
-      <p class="text-xl text-gray-600">
-        Contact us via email, Discord, or phone support.
-      </p>
-    </div>
-  </section>
-
-  <!-- MEDIA -->
-  <section id="media" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">Media</h2>
-      <p class="text-xl text-gray-600">
-        Game trailers and previews.
-      </p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-8">
-    <p>© 2026 Turnip Services. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    const games = [
-      { title: "Rainbow Six Siege", genre: "Tactical Shooter", image: "https://images7.alphacoders.com/521/thumb-1920-521305.png" },
-      { title: "Apex Legends", genre: "Battle Royale", image: "https://images.alphacoders.com/992/thumbbig-992948.webp" },
-      { title: "Call of Duty: Warzone", genre: "Battle Royale", image: "https://images8.alphacoders.com/116/thumb-1920-1163700.jpg" },
-      { title: "Minecraft", genre: "Sandbox Survival", image: "https://images5.alphacoders.com/752/thumb-1920-752070.jpg" },
-      { title: "Valorant", genre: "Tactical Shooter", image: "https://images.alphacoders.com/135/thumb-1920-1356698.jpeg" },
-      { title: "Fortnite", genre: "Battle Royale", image: "https://images.alphacoders.com/132/thumb-1920-1326064.jpeg" }
-    ];
-
-    const searchInput = document.getElementById('searchInput');
-    const resultsContainer = document.getElementById('results');
-
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.toLowerCase().trim();
-
-      const filtered = games.filter(game =>
-        game.title.toLowerCase().includes(query) ||
-        game.genre.toLowerCase().includes(query)
-      );
-
-      resultsContainer.innerHTML = "";
-
-      filtered.forEach(game => {
-        const card = document.createElement('div');
-        card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
-
-        card.innerHTML = `
-          <img src="${game.image}">
-          <div class="p-5">
-            <h3 class="font-bold text-xl">${game.title}</h3>
-            <p class="text-purple-600">${game.genre}</p>
-          </div>
-        `;
-
-        resultsContainer.appendChild(card);
-      });
-    });
-
-    function showLoginModal() {
-      alert("Login coming soon");
-    }
-  </script>
-
-</body>
-</html>
+</section>
