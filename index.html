@@ -6,7 +6,7 @@
   <title>Turnip Services</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
+ 
   <style>
     .game-card {
       transition: all 0.3s ease;
@@ -33,7 +33,7 @@
         <a href="#help" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Help</a>
         <a href="#about" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">About</a>
         <a href="#media" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Media</a>
-        <button onclick="showLoginModal()" 
+        <button onclick="showLoginModal()"
           class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">
           Login/SignUp
         </button>
@@ -50,11 +50,11 @@
     </div>
   </section>
 
-  <!-- SEARCH SECTION (Your current favorite) -->
+  <!-- SEARCH SECTION -->
   <section class="bg-purple-700 py-20">
     <div class="flex flex-col items-center px-6">
       <p class="text-white text-4xl mb-10 font-medium">Search games</p>
-      
+     
       <div class="relative w-full max-w-[550px]">
         <input
           type="text"
@@ -64,12 +64,11 @@
         />
         <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
       </div>
-
       <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
     </div>
   </section>
 
-  <!-- NEW SECTIONS -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-8">About Us</h2>
@@ -77,13 +76,44 @@
     </div>
   </section>
 
+  <!-- HELP SECTION - IMPROVED -->
   <section id="help" class="py-24 bg-gray-100">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">Help Center</h2>
-      <p class="text-xl text-gray-600">Need assistance? We're here to help with purchases, accounts, and more.</p>
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-12">Need Help?</h2>
+      <p class="text-center text-xl text-gray-600 mb-16">We're here to assist you. Contact us through any of these methods:</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Email -->
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fas fa-envelope text-4xl text-purple-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Email Us</h3>
+          <a href="mailto:turnipservices@gmail.com" class="text-purple-600 hover:underline text-lg font-medium">
+            turnipservices@gmail.com
+          </a>
+        </div>
+
+        <!-- Discord -->
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fab fa-discord text-4xl text-indigo-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Discord</h3>
+          <p class="text-gray-600 mb-2">Join our server or DM us:</p>
+          <p class="font-medium text-purple-600">Username: <span id="discord-username">yourusername#0000</span></p>
+        </div>
+
+        <!-- Phone / Text -->
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fas fa-phone-volume text-4xl text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Call or Text</h3>
+          <p class="text-gray-600 mb-2">Available during business hours</p>
+          <p class="font-medium text-purple-600">Phone: <span id="phone-number">+XX XXX XXX XXXX</span></p>
+        </div>
+
+      </div>
     </div>
   </section>
 
+  <!-- MEDIA SECTION -->
   <section id="media" class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-8">Media</h2>
@@ -142,7 +172,7 @@
 
     searchInput.addEventListener('input', () => {
       const query = searchInput.value.toLowerCase().trim();
-      const filtered = games.filter(game => 
+      const filtered = games.filter(game =>
         game.title.toLowerCase().includes(query) || game.genre.toLowerCase().includes(query)
       );
       displayGames(filtered);
