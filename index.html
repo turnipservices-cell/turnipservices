@@ -3,258 +3,586 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Turnip Services.com</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     .game-card {
       transition: all 0.3s ease;
     }
+
     .game-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+      box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
+
     .game-card img {
       height: 220px;
       object-fit: cover;
       width: 100%;
       cursor: pointer;
     }
+
     #productPage {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: white;
       z-index: 100;
       overflow-y: auto;
     }
+
     #rotateMessage {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: #0d0d0d; color: white; display: none;
-      justify-content: center; align-items: center; text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      color: white;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       z-index: 9999;
     }
-    .phone-icon { font-size: 70px; margin-bottom: 20px; animation: rotatePhone 1.5s infinite ease-in-out; }
-    @keyframes rotatePhone {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(90deg); }
-      100% { transform: rotate(0deg); }
+
+    .phone-icon {
+      font-size: 70px;
+      margin-bottom: 20px;
+      animation: rotatePhone 1.5s infinite ease-in-out;
     }
+
+    @keyframes rotatePhone {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(90deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
     @media screen and (max-width: 900px) and (orientation: portrait) {
-      #rotateMessage { display: flex; }
+      #rotateMessage {
+        display: flex;
+      }
     }
   </style>
 </head>
+
 <body class="bg-gray-100 font-sans">
 
   <!-- ROTATE MESSAGE -->
   <div id="rotateMessage">
     <div class="rotate-content">
       <div class="phone-icon">📱</div>
-      <h2 class="text-4xl font-bold mb-4">Turn your phone</h2>
-      <p class="text-xl text-gray-300">This website works better in landscape mode</p>
+
+      <h2 class="text-4xl font-bold mb-4">
+        Turn your phone
+      </h2>
+
+      <p class="text-xl text-gray-300">
+        This website works better in landscape mode
+      </p>
     </div>
   </div>
 
   <!-- NAVBAR -->
   <nav class="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
+
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <h1 class="text-3xl font-bold text-black cursor-pointer" onclick="window.location.reload()">Turnip Services.com</h1>
+
+      <h1
+        class="text-3xl font-bold text-black cursor-pointer"
+        onclick="window.location.reload()"
+      >
+        Turnip Services.com
+      </h1>
+
       <div class="flex items-center gap-5">
-        <a href="#help" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Help</a>
-        <a href="#about" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">About</a>
-        <a href="#media" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Media</a>
-        <button onclick="showLoginModal()" class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">Login/SignUp</button>
+
+        <a
+          href="#help"
+          class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition"
+        >
+          Help
+        </a>
+
+        <a
+          href="#about"
+          class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition"
+        >
+          About
+        </a>
+
+        <a
+          href="#media"
+          class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition"
+        >
+          Media
+        </a>
+
+        <button
+          onclick="showLoginModal()"
+          class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition"
+        >
+          Login/SignUp
+        </button>
+
       </div>
     </div>
   </nav>
 
   <!-- MAIN CONTENT -->
   <div id="mainContent">
+
     <!-- HERO -->
     <section class="bg-white text-center py-32">
+
       <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-7xl font-black text-black leading-tight">Welcome to <br /> Turnip Services.com!</h2>
+
+        <h2 class="text-7xl font-black text-black leading-tight">
+          Welcome to <br />
+          Turnip Services.com!
+        </h2>
+
       </div>
     </section>
 
-    <!-- SEARCH SECTION -->
+    <!-- SEARCH -->
     <section class="bg-purple-700 py-20">
+
       <div class="flex flex-col items-center px-6">
-        <p class="text-white text-4xl mb-10 font-medium">Search games</p>
+
+        <p class="text-white text-4xl mb-10 font-medium">
+          Search games
+        </p>
+
         <div class="relative w-full max-w-[550px]">
-          <input type="text" id="searchInput" placeholder="Search for games..." class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg" />
-          <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for games..."
+            class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg"
+          />
+
+          <i
+            class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"
+          ></i>
+
         </div>
-        <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+
+        <div
+          id="results"
+          class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        ></div>
+
       </div>
     </section>
 
-    <!-- ABOUT, HELP, MEDIA (kept exactly as you had) -->
-    <section id="about" class="py-24 bg-white"> ... your about section ... </section>
-    <section id="help" class="py-24 bg-gray-100"> ... your help section ... </section>
-    <section id="media" class="py-24 bg-white"> ... your media section ... </section>
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-white text-center">
+      <h2 class="text-5xl font-bold mb-6">About</h2>
+
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Turnip Services.com provides premium gaming boosting services
+        for competitive players worldwide.
+      </p>
+    </section>
+
+    <!-- HELP -->
+    <section id="help" class="py-24 bg-gray-100 text-center">
+      <h2 class="text-5xl font-bold mb-6">Help</h2>
+
+      <p class="text-xl text-gray-600">
+        Contact support anytime for assistance.
+      </p>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" class="py-24 bg-white text-center">
+      <h2 class="text-5xl font-bold mb-6">Media</h2>
+
+      <p class="text-xl text-gray-600">
+        Follow us on social media for updates.
+      </p>
+    </section>
+
   </div>
 
-  <!-- FULL PRODUCT PAGE -->
+  <!-- PRODUCT PAGE -->
   <div id="productPage" class="hidden">
+
     <div class="max-w-6xl mx-auto px-6 py-8">
-      <button onclick="backToHome()" class="flex items-center gap-2 text-lg mb-8 hover:text-purple-600">
+
+      <button
+        onclick="backToHome()"
+        class="flex items-center gap-2 text-lg mb-8 hover:text-purple-600"
+      >
         ← Back to All Games
       </button>
-      <div id="productDetail" class="flex flex-col lg:flex-row gap-10"></div>
+
+      <div
+        id="productDetail"
+        class="flex flex-col lg:flex-row gap-10"
+      ></div>
+
     </div>
   </div>
 
   <!-- PAYMENT MODAL -->
-  <div id="paymentModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[200]">
+  <div
+    id="paymentModal"
+    class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[200]"
+  >
+
     <div class="bg-white rounded-3xl p-8 max-w-lg w-full mx-4">
+
       <div class="flex justify-between items-center mb-6">
-        <h3 class="text-2xl font-bold">Secure Checkout</h3>
-        <button onclick="closePaymentModal()" class="text-3xl text-gray-400 hover:text-black">×</button>
+
+        <h3 class="text-2xl font-bold">
+          Secure Checkout
+        </h3>
+
+        <button
+          onclick="closePaymentModal()"
+          class="text-3xl text-gray-400 hover:text-black"
+        >
+          ×
+        </button>
+
       </div>
-      <div id="orderSummary" class="bg-gray-50 p-6 rounded-2xl mb-6"></div>
-      <button onclick="processPayment()" class="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-xl font-semibold">
+
+      <div
+        id="orderSummary"
+        class="bg-gray-50 p-6 rounded-2xl mb-6"
+      ></div>
+
+      <button
+        onclick="processPayment()"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-xl font-semibold"
+      >
         Pay Securely Now
       </button>
+
     </div>
   </div>
 
   <!-- LOGIN MODAL -->
-  <div id="loginModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+  <div
+    id="loginModal"
+    class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+  >
+
     <div class="bg-white rounded-3xl p-10 w-full max-w-md">
-      <h3 class="text-3xl font-bold text-center mb-8">Welcome to Turnip Services.com</h3>
-      <input type="email" id="emailInput" placeholder="Email" class="w-full mb-4 p-4 border rounded-2xl">
-      <input type="password" id="passwordInput" placeholder="Password" class="w-full mb-6 p-4 border rounded-2xl">
-      <button onclick="attemptLogin()" class="w-full bg-black text-white py-4 rounded-2xl text-lg font-semibold">Login</button>
-      <button onclick="hideLoginModal()" class="mt-6 text-gray-500 w-full">Close</button>
+
+      <h3 class="text-3xl font-bold text-center mb-8">
+        Welcome to Turnip Services.com
+      </h3>
+
+      <input
+        type="email"
+        id="emailInput"
+        placeholder="Email"
+        class="w-full mb-4 p-4 border rounded-2xl"
+      />
+
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Password"
+        class="w-full mb-6 p-4 border rounded-2xl"
+      />
+
+      <button
+        onclick="attemptLogin()"
+        class="w-full bg-black text-white py-4 rounded-2xl text-lg font-semibold"
+      >
+        Login
+      </button>
+
+      <button
+        onclick="hideLoginModal()"
+        class="mt-6 text-gray-500 w-full"
+      >
+        Close
+      </button>
+
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-white text-center py-8">
-    <p class="text-lg">© 2026 Turnip Services.com. All Rights Reserved.</p>
+
+    <p class="text-lg">
+      © 2026 Turnip Services.com. All Rights Reserved.
+    </p>
+
   </footer>
 
   <script>
+
     const games = [
-      { title: "Rainbow Six Siege", genre: "Tactical Shooter", image: "https://images7.alphacoders.com/521/thumb-1920-521305.png" },
-      { title: "Apex Legends", genre: "Battle Royale", image: "https://images.alphacoders.com/992/thumbbig-992948.webp" },
-      { title: "Call of Duty: Warzone", genre: "Battle Royale", image: "https://images8.alphacoders.com/116/thumb-1920-1163700.jpg" },
-      { title: "Minecraft", genre: "Sandbox Survival", image: "https://images5.alphacoders.com/752/thumb-1920-752070.jpg" },
-      { title: "Valorant", genre: "Tactical Shooter", image: "https://images.alphacoders.com/135/thumb-1920-1356698.jpeg" },
-      { title: "Fortnite", genre: "Battle Royale", image: "https://images.alphacoders.com/132/thumb-1920-1326064.jpeg" }
+
+      {
+        title: "Rainbow Six Siege",
+        genre: "Tactical Shooter",
+        image: "https://images7.alphacoders.com/521/thumb-1920-521305.png"
+      },
+
+      {
+        title: "Apex Legends",
+        genre: "Battle Royale",
+        image: "https://images.alphacoders.com/992/thumbbig-992948.webp"
+      },
+
+      {
+        title: "Call of Duty: Warzone",
+        genre: "Battle Royale",
+        image: "https://images8.alphacoders.com/116/thumb-1920-1163700.jpg"
+      },
+
+      {
+        title: "Minecraft",
+        genre: "Sandbox Survival",
+        image: "https://images5.alphacoders.com/752/thumb-1920-752070.jpg"
+      },
+
+      {
+        title: "Valorant",
+        genre: "Tactical Shooter",
+        image: "https://images.alphacoders.com/135/thumb-1920-1356698.jpeg"
+      },
+
+      {
+        title: "Fortnite",
+        genre: "Battle Royale",
+        image: "https://images.alphacoders.com/132/thumb-1920-1326064.jpeg"
+      }
+
     ];
 
     const searchInput = document.getElementById('searchInput');
+
     const resultsContainer = document.getElementById('results');
 
     function displayGames(filteredGames) {
+
       resultsContainer.innerHTML = '';
+
       filteredGames.forEach(game => {
+
         const card = document.createElement('div');
-        card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
+
+        card.className =
+          "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
+
         card.innerHTML = `
-          <img src="${game.image}" alt="${game.title}" onclick="showProductPage('${game.title}')">
+
+          <img
+            src="${game.image}"
+            alt="${game.title}"
+            onclick="showProductPage('${game.title}')"
+          >
+
           <div class="p-5">
-            <h3 class="font-bold text-xl mb-1">${game.title}</h3>
-            <p class="text-purple-600 font-medium">${game.genre}</p>
-            <button onclick="event.stopImmediatePropagation(); openPaymentModal('${game.title} Rank Boost', 29.99)" 
-              class="mt-4 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-800 transition">
-              Buy Now
-            </button>
+
+            <h3 class="font-bold text-xl mb-1">
+              ${game.title}
+            </h3>
+
+            <p class="text-purple-600 font-medium">
+              ${game.genre}
+            </p>
+
           </div>
+
         `;
+
         resultsContainer.appendChild(card);
+
       });
+
     }
 
     searchInput.addEventListener('input', () => {
+
       const query = searchInput.value.toLowerCase().trim();
-      const filtered = games.filter(game => 
-        game.title.toLowerCase().includes(query) || game.genre.toLowerCase().includes(query)
+
+      const filtered = games.filter(game =>
+
+        game.title.toLowerCase().includes(query) ||
+
+        game.genre.toLowerCase().includes(query)
+
       );
+
       displayGames(filtered);
+
     });
 
     displayGames(games);
 
-    // ================== FULL PRODUCT PAGE ==================
+    // PRODUCT PAGE
+
     function showProductPage(title) {
+
       const game = games.find(g => g.title === title);
+
       if (!game) return;
 
       document.getElementById('mainContent').style.display = 'none';
-      const productPage = document.getElementById('productPage');
+
+      const productPage =
+        document.getElementById('productPage');
+
       productPage.style.display = 'block';
 
       document.getElementById('productDetail').innerHTML = `
+
         <div class="flex flex-col lg:flex-row gap-10">
-          <img src="${game.image}" class="w-full lg:w-1/2 rounded-3xl" alt="${game.title}">
+
+          <img
+            src="${game.image}"
+            class="w-full lg:w-1/2 rounded-3xl"
+            alt="${game.title}"
+          >
+
           <div class="flex-1">
-            <h1 class="text-5xl font-bold mb-4">${game.title}</h1>
-            <p class="text-purple-600 text-2xl mb-8">${game.genre}</p>
-            <p class="text-gray-600 mb-10">Choose the service you need for this game:</p>
-            
-            <div onclick="openPaymentModal('${game.title} - Rank Boost', 29.99)" class="border-2 hover:border-purple-600 p-6 rounded-3xl cursor-pointer mb-6">
+
+            <h1 class="text-5xl font-bold mb-4">
+              ${game.title}
+            </h1>
+
+            <p class="text-purple-600 text-2xl mb-8">
+              ${game.genre}
+            </p>
+
+            <p class="text-gray-600 mb-10">
+              Choose the service you need for this game:
+            </p>
+
+            <div
+              onclick="openPaymentModal('${game.title} - Rank Boost', 29.99)"
+              class="border-2 hover:border-purple-600 p-6 rounded-3xl cursor-pointer mb-6"
+            >
+
               <div class="flex justify-between items-start">
+
                 <div>
-                  <h3 class="text-xl font-semibold">Rank Boost</h3>
-                  <p class="text-gray-500">Get boosted by professionals</p>
+
+                  <h3 class="text-xl font-semibold">
+                    Rank Boost
+                  </h3>
+
+                  <p class="text-gray-500">
+                    Get boosted by professionals
+                  </p>
+
                 </div>
-                <span class="text-3xl font-bold text-purple-600">$29.99</span>
+
+                <span class="text-3xl font-bold text-purple-600">
+                  $29.99
+                </span>
+
               </div>
+
             </div>
 
-            <div onclick="openPaymentModal('${game.title} - Champion Boost', 89.99)" class="border-2 hover:border-purple-600 p-6 rounded-3xl cursor-pointer">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-xl font-semibold">Champion Boost</h3>
-                  <p class="text-gray-500">Reach the highest ranks</p>
-                </div>
-                <span class="text-3xl font-bold text-purple-600">$89.99</span>
-              </div>
-            </div>
           </div>
+
         </div>
+
       `;
     }
 
     function backToHome() {
+
       document.getElementById('productPage').style.display = 'none';
+
       document.getElementById('mainContent').style.display = 'block';
+
     }
 
-    // Payment Functions
     function openPaymentModal(productName, price) {
+
       document.getElementById('orderSummary').innerHTML = `
         <p class="font-medium">${productName}</p>
         <p class="text-3xl font-bold text-purple-600">$${price}</p>
       `;
-      document.getElementById('paymentModal').classList.remove('hidden');
+
+      document
+        .getElementById('paymentModal')
+        .classList.remove('hidden');
+
     }
 
     function closePaymentModal() {
-      document.getElementById('paymentModal').classList.add('hidden');
+
+      document
+        .getElementById('paymentModal')
+        .classList.add('hidden');
+
     }
 
     function processPayment() {
-      alert("✅ Payment Successful!\nThank you for choosing Turnip Services.com");
+
+      alert(
+        "✅ Payment Successful!\nThank you for choosing Turnip Services.com"
+      );
+
       closePaymentModal();
+
     }
 
-    // Login Functions
     function showLoginModal() {
-      document.getElementById('loginModal').classList.remove('hidden');
+
+      document
+        .getElementById('loginModal')
+        .classList.remove('hidden');
+
     }
+
     function hideLoginModal() {
-      document.getElementById('loginModal').classList.add('hidden');
+
+      document
+        .getElementById('loginModal')
+        .classList.add('hidden');
+
     }
+
     function attemptLogin() {
+
       alert("✅ Logged in successfully! (Demo)");
+
       hideLoginModal();
+
     }
+
   </script>
+
 </body>
 </html>
