@@ -65,18 +65,19 @@
   </nav>
 
   <!-- HERO - Improved -->
-  <section class="bg-white text-center py-28">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-6xl md:text-7xl font-black text-black leading-tight mb-6">
-        Welcome to <br /> Turnip Services.com!
-      </h2>
-      <p class="text-2xl text-gray-600 mb-10">Premium gaming hacks, boosts & tools</p>
-      <button onclick="document.getElementById('results').scrollIntoView({ behavior: 'smooth' })" 
-        class="bg-black text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-800 transition">
-        Browse Games →
-      </button>
-    </div>
-  </section>
+<section class="bg-white text-center py-28">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-6xl md:text-7xl font-black text-black leading-tight mb-6">
+      Welcome to <br /> Turnip Services.com!
+    </h2>
+    <p class="text-2xl text-gray-600 mb-10">Premium gaming hacks, boosts & tools</p>
+    
+    <button onclick="scrollToGames()" 
+      class="bg-black text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-800 transition">
+      Browse Games ↓
+    </button>
+  </div>
+</section>
 
   <!-- SEARCH SECTION -->
   <section class="bg-purple-700 py-20">
@@ -160,15 +161,24 @@
   </footer>
 
   <script>
-    // === AUTH SYSTEM (unchanged) ===
-    let currentUser = null;
-    let isLoginMode = true;
-    // ... (I'll keep your auth code the same, just shortened for space)
+  // ... your existing code ...
 
-    function checkLoginStatus() { /* your code */ }
-    function updateAuthButton() { /* your code */ }
-    function showLoginModal() { /* your code */ }
-    // ... (rest of auth functions stay the same)
+  // Improved Scroll Function
+  function scrollToGames() {
+    const resultsSection = document.getElementById('results');
+    const navbarHeight = 80; // Height of your sticky navbar
+
+    const elementPosition = resultsSection.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+
+  // ... rest of your script ...
+</script>
 
     // Games Data
     const games = [
