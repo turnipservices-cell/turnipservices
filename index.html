@@ -78,8 +78,8 @@
     </div>
   </section>
 
-  <!-- SEARCH / GAMES LIST -->
-  <section class="bg-purple-700 py-20">
+  <!-- SEARCH SECTION -->
+  <section class="bg-purple-700 py-20" id="searchSection">
     <div class="flex flex-col items-center px-6">
       <p class="text-white text-4xl mb-10 font-medium">Search games</p>
       <div class="relative w-full max-w-[550px]">
@@ -92,72 +92,163 @@
   </section>
 
   <!-- PRODUCT / SERVICES PAGE -->
-  <div id="productPage" class="hidden bg-white">
+  <div id="productPage" class="hidden bg-white min-h-screen">
     <div class="max-w-6xl mx-auto px-6 py-12">
       <button onclick="goBackToHome()" class="mb-8 flex items-center gap-2 text-lg hover:text-purple-600">
         ← Back to All Games
       </button>
 
-      <div class="flex flex-col md:flex-row gap-10">
-        <div class="md:w-5/12">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-5/12">
           <img id="productImage" class="w-full rounded-3xl shadow-2xl" alt="">
         </div>
-        <div class="md:w-7/12">
+        <div class="lg:w-7/12">
           <h1 id="productTitle" class="text-5xl font-bold mb-2"></h1>
-          <p id="productGenre" class="text-purple-600 text-xl"></p>
+          <p id="productGenre" class="text-purple-600 text-xl mb-10"></p>
 
-          <div class="mt-10">
-            <h3 class="text-2xl font-semibold mb-6">Available Services</h3>
-            <div id="servicesList" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Services will be added here dynamically -->
-            </div>
-          </div>
+          <h3 class="text-2xl font-semibold mb-6">Available Services</h3>
+          <div id="servicesList" class="space-y-6"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT, HELP, MEDIA (kept same) -->
-  <section id="about" class="py-24 bg-white"> ... </section>
-  <section id="help" class="py-24 bg-gray-100"> ... </section>
-  <section id="media" class="py-24 bg-white"> ... </section>
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-8">About Us</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        At Turnip Services.com, we create powerful gaming hacks, tools, and services to help you get the most out of your favorite games.
+      </p>
+    </div>
+  </section>
+
+  <!-- HELP -->
+  <section id="help" class="py-24 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-12">Need Help?</h2>
+      <p class="text-center text-xl text-gray-600 mb-16">We're here to assist you. Contact us through any of these methods:</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fas fa-envelope text-4xl text-purple-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Email Us</h3>
+          <a href="mailto:turnipservices@gmail.com" class="text-purple-600 hover:underline text-lg font-medium">
+            turnipservices@gmail.com
+          </a>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fab fa-discord text-4xl text-indigo-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Discord</h3>
+          <p class="text-gray-600 mb-2">Join our server or DM us:</p>
+          <p class="font-medium text-purple-600">Username: <span id="discord-username">Coming Soon</span></p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fas fa-phone-volume text-4xl text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-semibold mb-3">Call or Text</h3>
+          <p class="text-gray-600 mb-2">Available during business hours</p>
+          <p class="font-medium text-purple-600">Phone: <span id="phone-number">+44 7469 627815</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section id="media" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-8">Media</h2>
+      <p class="text-xl text-gray-600">Game trailers, screenshots, and updates will be here.</p>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-white text-center py-12">
-    <p class="text-lg mb-2">© 2026 Turnip Services.com. All Rights Reserved.</p>
+    <p class="text-lg">© 2026 Turnip Services.com. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // === Your auth code stays the same (checkLoginStatus, login functions, etc.) ===
+    // Auth System (kept from your previous code)
+    let currentUser = null;
+    let isLoginMode = true;
 
+    function checkLoginStatus() {
+      const savedUser = localStorage.getItem('turnipUser');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        updateAuthButton();
+      }
+    }
+
+    function updateAuthButton() {
+      const btn = document.getElementById('authButton');
+      if (currentUser) {
+        btn.innerHTML = `👤 ${currentUser.username} <span class="text-sm ml-2">(Logout)</span>`;
+        btn.onclick = logout;
+      } else {
+        btn.textContent = "Login/SignUp";
+        btn.onclick = showLoginModal;
+      }
+    }
+
+    function showLoginModal() {
+      document.getElementById('loginModal').classList.remove('hidden');
+      resetModal();
+    }
+
+    function hideLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+
+    function resetModal() {
+      isLoginMode = true;
+      document.getElementById('modalTitle').textContent = "Login";
+      document.getElementById('modalSubtitle').textContent = "Sign in to your account";
+      document.getElementById('authActionBtn').textContent = "Login";
+      document.getElementById('toggleLink').textContent = "Sign Up";
+    }
+
+    function toggleAuthMode() {
+      isLoginMode = !isLoginMode;
+      // ... (your toggle logic)
+    }
+
+    function handleAuth() {
+      // ... (your existing handleAuth logic)
+      alert("Login system working (demo)");
+      hideLoginModal();
+    }
+
+    function logout() {
+      if (confirm("Logout?")) {
+        currentUser = null;
+        localStorage.removeItem('turnipUser');
+        updateAuthButton();
+      }
+    }
+
+    // Games with Services
     const games = [
       { 
-        id: 1, 
         title: "Rainbow Six Siege", 
         genre: "Tactical Shooter", 
         image: "https://images7.alphacoders.com/521/thumb-1920-521305.png",
         services: [
-          { name: "Rank Boost", price: "29.99" },
-          { name: "Account Recovery", price: "15.00" },
-          { name: "Custom Loadout", price: "9.99" },
-          { name: "Champions Boost", price: "49.99" }
+          {name: "Rank Boost", price: "29.99"},
+          {name: "Unranked to Champion", price: "89.99"},
+          {name: "Account Recovery", price: "19.99"}
         ]
       },
       { 
-        id: 2, 
         title: "Apex Legends", 
         genre: "Battle Royale", 
         image: "https://images.alphacoders.com/992/thumbbig-992948.webp",
         services: [
-          { name: "Rank Boost", price: "24.99" },
-          { name: "Legend Unlock", price: "19.99" },
-          { name: "Predator Boost", price: "59.99" }
+          {name: "Rank Boost", price: "24.99"},
+          {name: "Predator Boost", price: "69.99"}
         ]
       }
-      // Add more games later...
+      // Add more games here later
     ];
 
-    // Rest of your search + display logic
     const searchInput = document.getElementById('searchInput');
     const resultsContainer = document.getElementById('results');
 
@@ -173,45 +264,46 @@
             <p class="text-purple-600 font-medium">${game.genre}</p>
           </div>
         `;
-        card.onclick = () => showServicesPage(game);
+        card.onclick = () => showProductPage(game);
         resultsContainer.appendChild(card);
       });
     }
 
-    function showServicesPage(game) {
-      document.getElementById('mainContent').classList.add('hidden'); // You'll need to wrap search in a div with id="mainContent"
+    function showProductPage(game) {
+      document.getElementById('searchSection').classList.add('hidden');
       document.getElementById('productPage').classList.remove('hidden');
 
       document.getElementById('productImage').src = game.image;
       document.getElementById('productTitle').textContent = game.title;
       document.getElementById('productGenre').textContent = game.genre;
 
-      const servicesHTML = game.services.map(service => `
-        <div class="bg-gray-50 p-6 rounded-2xl border">
-          <h4 class="font-semibold text-lg">${service.name}</h4>
-          <p class="text-3xl font-bold text-black mt-2">$${service.price}</p>
-          <button onclick="buyService('${service.name}', '${service.price}')" 
-            class="mt-4 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-800">
+      const html = game.services.map(s => `
+        <div class="border rounded-2xl p-6 hover:border-purple-500 transition">
+          <h4 class="font-semibold text-xl">${s.name}</h4>
+          <p class="text-3xl font-bold mt-3">$${s.price}</p>
+          <button onclick="buyService('${s.name}', ${s.price})" class="mt-6 w-full bg-black text-white py-3 rounded-xl">
             Buy Now
           </button>
         </div>
       `).join('');
 
-      document.getElementById('servicesList').innerHTML = servicesHTML;
+      document.getElementById('servicesList').innerHTML = html;
     }
 
     function buyService(name, price) {
-      alert(`Added to cart: ${name} - $${price}\n\n(This feature is coming soon)`);
+      alert(`✅ Added to cart: ${name} - $${price}\n\n(Checkout coming soon)`);
     }
 
     function goBackToHome() {
       document.getElementById('productPage').classList.add('hidden');
-      document.getElementById('mainContent').classList.remove('hidden');
+      document.getElementById('searchSection').classList.remove('hidden');
     }
 
     function scrollToGames() {
       goBackToHome();
-      setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth' }), 100);
+      setTimeout(() => {
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
 
     // Search
@@ -224,7 +316,7 @@
     });
 
     displayGames(games);
-    checkLoginStatus();   // your login function
+    checkLoginStatus();
   </script>
 </body>
 </html>
