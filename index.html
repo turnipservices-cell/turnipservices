@@ -65,19 +65,18 @@
   </nav>
 
   <!-- HERO - Improved -->
-<section class="bg-white text-center py-28">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-6xl md:text-7xl font-black text-black leading-tight mb-6">
-      Welcome to <br /> Turnip Services.com!
-    </h2>
-    <p class="text-2xl text-gray-600 mb-10">Premium gaming hacks, boosts & tools</p>
-    
-    <button onclick="scrollToGames()" 
-      class="bg-black text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-800 transition">
-      Browse Games ↓
-    </button>
-  </div>
-</section>
+  <section class="bg-white text-center py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-6xl md:text-7xl font-black text-black leading-tight mb-6">
+        Welcome to <br /> Turnip Services.com!
+      </h2>
+      <p class="text-2xl text-gray-600 mb-10">Premium gaming hacks, boosts & tools</p>
+      <button onclick="scrollToGames()" 
+        class="bg-black text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-800 transition">
+        Browse Games ↓
+      </button>
+    </div>
+  </section>
 
   <!-- SEARCH SECTION -->
   <section class="bg-purple-700 py-20">
@@ -148,8 +147,7 @@
         <h3 id="modalTitle" class="text-3xl font-bold mb-2"></h3>
         <p id="modalGenre" class="text-purple-600 font-medium mb-4"></p>
         <p id="modalDesc" class="text-gray-600 mb-8"></p>
-        <button onclick="closeGameModal()" 
-          class="w-full bg-black text-white py-4 rounded-2xl text-lg font-semibold">Close</button>
+        <button onclick="closeGameModal()" class="w-full bg-black text-white py-4 rounded-2xl text-lg font-semibold">Close</button>
       </div>
     </div>
   </div>
@@ -161,24 +159,109 @@
   </footer>
 
   <script>
-  // ... your existing code ...
+    let currentUser = null;
+    let isLoginMode = true;
 
-  // Improved Scroll Function
-  function scrollToGames() {
-    const resultsSection = document.getElementById('results');
-    const navbarHeight = 80; // Height of your sticky navbar
+    function checkLoginStatus() {
+      const savedUser = localStorage.getItem('turnipUser');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        updateAuthButton();
+      }
+    }
 
-    const elementPosition = resultsSection.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+    function updateAuthButton() {
+      const btn = document.getElementById('authButton');
+      if (currentUser) {
+        btn.innerHTML = `👤 ${currentUser.username} <span class="text-sm ml-2">(Logout)</span>`;
+        btn.onclick = logout;
+      } else {
+        btn.textContent = "Login/SignUp";
+        btn.onclick = showLoginModal;
+      }
+    }
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
+    function showLoginModal() {
+      document.getElementById('loginModal').classList.remove('hidden');
+      resetModal();
+    }
 
-  // ... rest of your script ...
-</script>
+    function hideLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+
+    function resetModal() {
+      isLoginMode = true;
+      document.getElementById('modalTitle').textContent = "Login";
+      document.getElementById('modalSubtitle').textContent = "Sign in to your account";
+      document.getElementById('authActionBtn').textContent = "Login";
+      document.getElementById('toggleLink').textContent = "Sign Up";
+      document.getElementById('authMessage').classList.add('hidden');
+    }
+
+    function toggleAuthMode() {
+      isLoginMode = !isLoginMode;
+      if (isLoginMode) {
+        document.getElementById('modalTitle').textContent = "Login";
+        document.getElementById('modalSubtitle').textContent = "Sign in to your account";
+        document.getElementById('authActionBtn').textContent = "Login";
+        document.getElementById('toggleLink').textContent = "Sign Up";
+      } else {
+        document.getElementById('modalTitle').textContent = "Create Account";
+        document.getElementById('modalSubtitle').textContent = "Join Turnip Services.com";
+        document.getElementById('authActionBtn').textContent = "Sign Up";
+        document.getElementById('toggleLink').textContent = "Login";
+      }
+    }
+
+    function handleAuth() {
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value.trim();
+      const messageEl = document.getElementById('authMessage');
+
+      if (!email || !password) {
+        messageEl.textContent = "Please fill all fields";
+        messageEl.className = "bg-red-100 text-red-600 p-3 rounded-2xl";
+        messageEl.classList.remove('hidden');
+        return;
+      }
+
+      if (isLoginMode) {
+        const saved = localStorage.getItem('turnipUser');
+        if (saved) {
+          const user = JSON.parse(saved);
+          if (user.email === email) {
+            currentUser = user;
+            updateAuthButton();
+            messageEl.textContent = "✅ Login successful!";
+            messageEl.className = "bg-green-100 text-green-600 p-3 rounded-2xl";
+            setTimeout(hideLoginModal, 1200);
+          } else {
+            messageEl.textContent = "Wrong email or password";
+            messageEl.className = "bg-red-100 text-red-600 p-3 rounded-2xl";
+          }
+        } else {
+          messageEl.textContent = "No account found. Please sign up.";
+          messageEl.className = "bg-red-100 text-red-600 p-3 rounded-2xl";
+        }
+      } else {
+        const newUser = { username: email.split('@')[0], email: email };
+        localStorage.setItem('turnipUser', JSON.stringify(newUser));
+        currentUser = newUser;
+        updateAuthButton();
+        messageEl.textContent = "✅ Account created successfully!";
+        messageEl.className = "bg-green-100 text-green-600 p-3 rounded-2xl";
+        setTimeout(hideLoginModal, 1500);
+      }
+    }
+
+    function logout() {
+      if (confirm("Logout from Turnip Services.com?")) {
+        currentUser = null;
+        localStorage.removeItem('turnipUser');
+        updateAuthButton();
+      }
+    }
 
     // Games Data
     const games = [
@@ -214,12 +297,11 @@
       });
     }
 
-    // Game Modal
     function showGameModal(game) {
       document.getElementById('modalImage').style.backgroundImage = `url('${game.image}')`;
       document.getElementById('modalTitle').textContent = game.title;
       document.getElementById('modalGenre').textContent = game.genre;
-      document.getElementById('modalDesc').textContent = game.desc || "Premium gaming service available.";
+      document.getElementById('modalDesc').textContent = game.desc;
       document.getElementById('gameModal').classList.remove('hidden');
     }
 
@@ -227,12 +309,24 @@
       document.getElementById('gameModal').classList.add('hidden');
     }
 
-    // Search
+    // Smooth scroll to games
+    function scrollToGames() {
+      const results = document.getElementById('results');
+      const navHeight = 80;
+      const elementPosition = results.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navHeight - 30;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    // Search functionality
     searchInput.addEventListener('input', () => {
       const query = searchInput.value.toLowerCase().trim();
       const filtered = games.filter(game => 
-        game.title.toLowerCase().includes(query) || 
-        game.genre.toLowerCase().includes(query)
+        game.title.toLowerCase().includes(query) || game.genre.toLowerCase().includes(query)
       );
       displayGames(filtered);
     });
