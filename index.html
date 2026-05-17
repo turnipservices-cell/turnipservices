@@ -10,25 +10,32 @@
     html { scroll-behavior: smooth; }
     .game-card {
       transition: all 0.3s ease;
-      cursor: pointer;
     }
     .game-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+                  0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     .game-card img {
       height: 220px;
       object-fit: cover;
       width: 100%;
     }
+    /* ROTATE PHONE MESSAGE */
     #rotateMessage {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: #0d0d0d; color: white; display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #0d0d0d; color: white;
+      display: none;
       justify-content: center; align-items: center; text-align: center;
       z-index: 9999;
     }
     .phone-icon { font-size: 70px; margin-bottom: 20px; animation: rotatePhone 1.5s infinite ease-in-out; }
-    @keyframes rotatePhone { 0% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } 100% { transform: rotate(0deg); } }
+    @keyframes rotatePhone {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(90deg); }
+      100% { transform: rotate(0deg); }
+    }
     @media screen and (max-width: 900px) and (orientation: portrait) {
       #rotateMessage { display: flex; }
     }
@@ -48,78 +55,40 @@
   <!-- NAVBAR -->
   <nav class="bg-white border-b border-gray-200 py-5 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <h1 class="text-3xl font-bold text-black cursor-pointer" onclick="window.location.reload()">
-        Turnip Services.com
-      </h1>
+      <h1 class="text-3xl font-bold text-black cursor-pointer" onclick="window.location.reload()">Turnip Services.com</h1>
       <div class="flex items-center gap-5">
         <a href="#help" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Help</a>
         <a href="#about" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">About</a>
         <a href="#media" class="px-8 py-3 border-2 border-black rounded-full text-lg font-medium hover:bg-gray-100 transition">Media</a>
-        
-        <button id="authButton" onclick="showLoginModal()" 
-          class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">
-          Login/SignUp
-        </button>
+        <button onclick="showLoginModal()" class="px-8 py-3 bg-black text-white rounded-full text-lg font-semibold hover:bg-gray-800 transition">Login/SignUp</button>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="bg-white text-center py-28">
+  <section class="bg-white text-center py-32">
     <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-6xl md:text-7xl font-black text-black leading-tight mb-6">
-        Welcome to <br /> Turnip Services.com!
-      </h2>
-      <p class="text-2xl text-gray-600 mb-10">Premium gaming hacks, boosts & tools</p>
-      <button onclick="scrollToGames()" 
-        class="bg-black text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-gray-800 transition">
-        Browse Services ↓
-      </button>
+      <h2 class="text-7xl font-black text-black leading-tight">Welcome to <br /> Turnip Services.com!</h2>
     </div>
   </section>
 
   <!-- SEARCH SECTION -->
-  <section class="bg-purple-700 py-20" id="searchSection">
+  <section class="bg-purple-700 py-20">
     <div class="flex flex-col items-center px-6">
       <p class="text-white text-4xl mb-10 font-medium">Search games</p>
       <div class="relative w-full max-w-[550px]">
-        <input type="text" id="searchInput" placeholder="Search for games..." 
-          class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg"/>
+        <input type="text" id="searchInput" placeholder="Search for games..." class="w-full h-20 rounded-full border-4 border-black px-14 text-2xl focus:outline-none shadow-lg" />
         <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-3xl text-gray-500"></i>
       </div>
       <div id="results" class="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
     </div>
   </section>
 
-  <!-- PRODUCT / SERVICES PAGE -->
-  <div id="productPage" class="hidden bg-white min-h-screen">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <button onclick="goBackToHome()" class="mb-8 flex items-center gap-2 text-lg hover:text-purple-600">
-        ← Back to All Games
-      </button>
-
-      <div class="flex flex-col lg:flex-row gap-12">
-        <div class="lg:w-5/12">
-          <img id="productImage" class="w-full rounded-3xl shadow-2xl" alt="">
-        </div>
-        <div class="lg:w-7/12">
-          <h1 id="productTitle" class="text-5xl font-bold mb-2"></h1>
-          <p id="productGenre" class="text-purple-600 text-xl mb-10"></p>
-
-          <h3 class="text-2xl font-semibold mb-6">Available Services</h3>
-          <div id="servicesList" class="space-y-6"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ABOUT -->
   <section id="about" class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-8">About Us</h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        At Turnip Services.com, we create powerful gaming hacks, tools, and services to help you get the most out of your favorite games.
-      </p>
+      <p class="text-xl text-gray-600">Turnip Services.com is your go-to platform for games and gaming services.</p>
     </div>
   </section>
 
@@ -132,9 +101,7 @@
         <div class="bg-white p-8 rounded-3xl shadow text-center">
           <i class="fas fa-envelope text-4xl text-purple-600 mb-4"></i>
           <h3 class="text-2xl font-semibold mb-3">Email Us</h3>
-          <a href="mailto:turnipservices@gmail.com" class="text-purple-600 hover:underline text-lg font-medium">
-            turnipservices@gmail.com
-          </a>
+          <a href="mailto:turnipservices@gmail.com" class="text-purple-600 hover:underline text-lg font-medium">turnipservices@gmail.com</a>
         </div>
         <div class="bg-white p-8 rounded-3xl shadow text-center">
           <i class="fab fa-discord text-4xl text-indigo-600 mb-4"></i>
@@ -160,60 +127,72 @@
     </div>
   </section>
 
+  <!-- PROFESSIONAL PAYMENT MODAL -->
+  <div id="paymentModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+    <div class="bg-white rounded-3xl p-8 max-w-lg w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold">Secure Checkout</h3>
+        <button onclick="closePaymentModal()" class="text-3xl text-gray-400 hover:text-black">×</button>
+      </div>
+
+      <div id="orderSummary" class="bg-gray-50 p-6 rounded-2xl mb-6"></div>
+
+      <div class="mb-6">
+        <p class="font-medium mb-3">Payment Method</p>
+        <div class="grid grid-cols-3 gap-3">
+          <button onclick="selectPayment(this)" class="payment-btn border-2 border-purple-600 bg-purple-50 p-4 rounded-2xl text-center text-sm">💳 Card</button>
+          <button onclick="selectPayment(this)" class="payment-btn border p-4 rounded-2xl text-center text-sm">🐦 PayPal</button>
+          <button onclick="selectPayment(this)" class="payment-btn border p-4 rounded-2xl text-center text-sm">🍎 Pay</button>
+        </div>
+      </div>
+
+      <div class="space-y-4 mb-8">
+        <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" class="w-full p-4 border rounded-2xl text-lg" maxlength="19">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" class="w-full p-4 border rounded-2xl">
+          <input type="text" id="cvv" placeholder="CVV" maxlength="4" class="w-full p-4 border rounded-2xl">
+        </div>
+      </div>
+
+      <div class="bg-gray-100 p-5 rounded-2xl mb-6">
+        <div class="flex justify-between text-xl font-semibold">
+          <span>Total</span>
+          <span id="totalPrice"></span>
+        </div>
+      </div>
+
+      <button onclick="processPayment()" class="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-xl font-semibold transition">
+        Pay Securely Now
+      </button>
+
+      <p class="text-center text-xs text-gray-500 mt-4">🔒 Secured by Stripe • SSL Encrypted</p>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div class="bg-white rounded-3xl p-10 w-full max-w-md">
+      <h3 class="text-3xl font-bold text-center mb-8">Welcome to Turnip Services.com</h3>
+      <input type="email" id="emailInput" placeholder="Email" class="w-full mb-4 p-4 border rounded-2xl">
+      <input type="password" id="passwordInput" placeholder="Password" class="w-full mb-6 p-4 border rounded-2xl">
+      <button onclick="attemptLogin()" class="w-full bg-black text-white py-4 rounded-2xl text-lg font-semibold">Login</button>
+      <button onclick="hideLoginModal()" class="mt-6 text-gray-500 w-full">Close</button>
+    </div>
+  </div>
+
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white text-center py-12">
+  <footer class="bg-gray-900 text-white text-center py-8">
     <p class="text-lg">© 2026 Turnip Services.com. All Rights Reserved.</p>
   </footer>
 
   <script>
-    let currentUser = null;
-
-    function checkLoginStatus() {
-      const savedUser = localStorage.getItem('turnipUser');
-      if (savedUser) {
-        currentUser = JSON.parse(savedUser);
-        updateAuthButton();
-      }
-    }
-
-    function updateAuthButton() {
-      const btn = document.getElementById('authButton');
-      if (currentUser) {
-        btn.innerHTML = `👤 ${currentUser.username} <span class="text-sm ml-2">(Logout)</span>`;
-        btn.onclick = logout;
-      } else {
-        btn.textContent = "Login/SignUp";
-        btn.onclick = showLoginModal;
-      }
-    }
-
-    function showLoginModal() {
-      alert("Login / Sign Up system is ready!\n\nYou can create an account and login.");
-      // For now using simple alert. We can expand later.
-    }
-
-    function logout() {
-      if (confirm("Logout?")) {
-        currentUser = null;
-        localStorage.removeItem('turnipUser');
-        updateAuthButton();
-      }
-    }
-
-    // Games Data
     const games = [
-      { title: "Rainbow Six Siege", genre: "Tactical Shooter", image: "https://images7.alphacoders.com/521/thumb-1920-521305.png",
-        services: [{name: "Rank Boost", price: "29.99"}, {name: "Champion Boost", price: "89.99"}] },
-      { title: "Apex Legends", genre: "Battle Royale", image: "https://images.alphacoders.com/992/thumbbig-992948.webp",
-        services: [{name: "Rank Boost", price: "24.99"}, {name: "Predator Boost", price: "69.99"}] },
-      { title: "Call of Duty: Warzone", genre: "Battle Royale", image: "https://images8.alphacoders.com/116/thumb-1920-1163700.jpg",
-        services: [{name: "Rank Boost", price: "34.99"}] },
-      { title: "Minecraft", genre: "Sandbox Survival", image: "https://images5.alphacoders.com/752/thumb-1920-752070.jpg",
-        services: [{name: "Server Boost", price: "19.99"}, {name: "Custom Plugins", price: "49.99"}] },
-      { title: "Valorant", genre: "Tactical Shooter", image: "https://images.alphacoders.com/135/thumb-1920-1356698.jpeg",
-        services: [{name: "Rank Boost", price: "27.99"}] },
-      { title: "Fortnite", genre: "Battle Royale", image: "https://images.alphacoders.com/132/thumb-1920-1326064.jpeg",
-        services: [{name: "Rank Boost", price: "22.99"}] }
+      { title: "Rainbow Six Siege", genre: "Tactical Shooter", image: "https://images7.alphacoders.com/521/thumb-1920-521305.png" },
+      { title: "Apex Legends", genre: "Battle Royale", image: "https://images.alphacoders.com/992/thumbbig-992948.webp" },
+      { title: "Call of Duty: Warzone", genre: "Battle Royale", image: "https://images8.alphacoders.com/116/thumb-1920-1163700.jpg" },
+      { title: "Minecraft", genre: "Sandbox Survival", image: "https://images5.alphacoders.com/752/thumb-1920-752070.jpg" },
+      { title: "Valorant", genre: "Tactical Shooter", image: "https://images.alphacoders.com/135/thumb-1920-1356698.jpeg" },
+      { title: "Fortnite", genre: "Battle Royale", image: "https://images.alphacoders.com/132/thumb-1920-1326064.jpeg" }
     ];
 
     const searchInput = document.getElementById('searchInput');
@@ -221,6 +200,10 @@
 
     function displayGames(filteredGames) {
       resultsContainer.innerHTML = '';
+      if (filteredGames.length === 0) {
+        resultsContainer.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-2xl text-white">No games found 😔</p></div>`;
+        return;
+      }
       filteredGames.forEach(game => {
         const card = document.createElement('div');
         card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
@@ -231,49 +214,10 @@
             <p class="text-purple-600 font-medium">${game.genre}</p>
           </div>
         `;
-        card.onclick = () => showProductPage(game);
         resultsContainer.appendChild(card);
       });
     }
 
-    function showProductPage(game) {
-      document.getElementById('searchSection').classList.add('hidden');
-      document.getElementById('productPage').classList.remove('hidden');
-
-      document.getElementById('productImage').src = game.image;
-      document.getElementById('productTitle').textContent = game.title;
-      document.getElementById('productGenre').textContent = game.genre;
-
-      const html = game.services.map(s => `
-        <div class="border rounded-2xl p-6 hover:border-purple-500 transition">
-          <h4 class="font-semibold text-xl">${s.name}</h4>
-          <p class="text-3xl font-bold mt-3">$${s.price}</p>
-          <button onclick="buyService('${s.name}', '${s.price}')" class="mt-6 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-800">
-            Buy Now
-          </button>
-        </div>
-      `).join('');
-
-      document.getElementById('servicesList').innerHTML = html;
-    }
-
-    function buyService(name, price) {
-      alert(`Added to cart: ${name} - $${price}\n\n(Full checkout coming soon)`);
-    }
-
-    function goBackToHome() {
-      document.getElementById('productPage').classList.add('hidden');
-      document.getElementById('searchSection').classList.remove('hidden');
-    }
-
-    function scrollToGames() {
-      goBackToHome();
-      setTimeout(() => {
-        document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
-
-    // Search
     searchInput.addEventListener('input', () => {
       const query = searchInput.value.toLowerCase().trim();
       const filtered = games.filter(game => 
@@ -283,7 +227,54 @@
     });
 
     displayGames(games);
-    checkLoginStatus();
+
+    // ================== PAYMENT SYSTEM ==================
+    let currentProduct = {};
+
+    function openPaymentModal(productName, price) {
+      currentProduct = { name: productName, price: price };
+      document.getElementById('orderSummary').innerHTML = `
+        <p class="font-medium">${productName}</p>
+        <p class="text-3xl font-bold text-purple-600">$${price}</p>
+      `;
+      document.getElementById('totalPrice').textContent = `$${price}`;
+      document.getElementById('paymentModal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+    }
+
+    function selectPayment(btn) {
+      document.querySelectorAll('.payment-btn').forEach(b => {
+        b.classList.remove('border-purple-600', 'bg-purple-50');
+      });
+      btn.classList.add('border-purple-600', 'bg-purple-50');
+    }
+
+    function processPayment() {
+      const message = document.createElement('div');
+      message.style.cssText = "position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#10b981; color:white; padding:16px 24px; border-radius:9999px; z-index:200; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.3);";
+      message.innerHTML = `✅ Payment Successful!<br><span class="text-sm">Thank you for choosing Turnip Services.com</span>`;
+      document.body.appendChild(message);
+
+      setTimeout(() => {
+        message.remove();
+        closePaymentModal();
+      }, 2800);
+    }
+
+    // Login Modal Functions
+    function showLoginModal() {
+      document.getElementById('loginModal').classList.remove('hidden');
+    }
+    function hideLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+    function attemptLogin() {
+      alert("✅ Logged in successfully! (Demo)");
+      hideLoginModal();
+    }
   </script>
 </body>
 </html>
