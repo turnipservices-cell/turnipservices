@@ -13,15 +13,14 @@
     }
     .game-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-                  0 8px 10px -6px rgb(0 0 0 / 0.1);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     .game-card img {
       height: 220px;
       object-fit: cover;
       width: 100%;
+      cursor: pointer;
     }
-    /* ROTATE PHONE MESSAGE */
     #rotateMessage {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: #0d0d0d; color: white; display: none;
@@ -125,40 +124,24 @@
     </div>
   </section>
 
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="productModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+    <div class="bg-white rounded-3xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-auto">
+      <div class="p-8">
+        <button onclick="closeProductModal()" class="float-right text-4xl text-gray-400 hover:text-black">×</button>
+        <div id="productContent"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- PAYMENT MODAL -->
-  <div id="paymentModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+  <div id="paymentModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[110]">
     <div class="bg-white rounded-3xl p-8 max-w-lg w-full mx-4">
       <div class="flex justify-between items-center mb-6">
         <h3 class="text-2xl font-bold">Secure Checkout</h3>
         <button onclick="closePaymentModal()" class="text-3xl text-gray-400 hover:text-black">×</button>
       </div>
-
       <div id="orderSummary" class="bg-gray-50 p-6 rounded-2xl mb-6"></div>
-
-      <div class="mb-6">
-        <p class="font-medium mb-3">Payment Method</p>
-        <div class="grid grid-cols-3 gap-3">
-          <button onclick="selectPayment(this)" class="payment-btn border-2 border-purple-600 bg-purple-50 p-4 rounded-2xl text-center text-sm">💳 Card</button>
-          <button onclick="selectPayment(this)" class="payment-btn border p-4 rounded-2xl text-center text-sm">🐦 PayPal</button>
-          <button onclick="selectPayment(this)" class="payment-btn border p-4 rounded-2xl text-center text-sm">🍎 Pay</button>
-        </div>
-      </div>
-
-      <div class="space-y-4 mb-8">
-        <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" class="w-full p-4 border rounded-2xl text-lg" maxlength="19">
-        <div class="grid grid-cols-2 gap-4">
-          <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" class="w-full p-4 border rounded-2xl">
-          <input type="text" id="cvv" placeholder="CVV" maxlength="4" class="w-full p-4 border rounded-2xl">
-        </div>
-      </div>
-
-      <div class="bg-gray-100 p-5 rounded-2xl mb-6">
-        <div class="flex justify-between text-xl font-semibold">
-          <span>Total</span>
-          <span id="totalPrice"></span>
-        </div>
-      </div>
-
       <button onclick="processPayment()" class="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-xl font-semibold transition">
         Pay Securely Now
       </button>
@@ -205,11 +188,11 @@
         const card = document.createElement('div');
         card.className = "game-card bg-white rounded-2xl overflow-hidden shadow-xl";
         card.innerHTML = `
-          <img src="${game.image}" alt="${game.title}">
+          <img src="${game.image}" alt="${game.title}" onclick="showProductDetail('${game.title}')">
           <div class="p-5">
             <h3 class="font-bold text-xl mb-1">${game.title}</h3>
             <p class="text-purple-600 font-medium">${game.genre}</p>
-            <button onclick="openPaymentModal('${game.title} Rank Boost', 29.99)" 
+            <button onclick="event.stopImmediatePropagation(); openPaymentModal('${game.title} Rank Boost', 29.99)" 
               class="mt-4 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-800 transition">
               Buy Now
             </button>
@@ -229,11 +212,50 @@
 
     displayGames(games);
 
-    // ================== PAYMENT SYSTEM ==================
-    let currentProduct = {};
+    // Product Detail Modal
+    function showProductDetail(title) {
+      const game = games.find(g => g.title === title);
+      if (!game) return;
 
+      document.getElementById('productContent').innerHTML = `
+        <div class="flex flex-col lg:flex-row gap-8">
+          <img src="${game.image}" class="w-full lg:w-1/2 rounded-2xl" alt="${game.title}">
+          <div class="flex-1">
+            <h2 class="text-4xl font-bold mb-2">${game.title}</h2>
+            <p class="text-purple-600 text-xl mb-6">${game.genre}</p>
+            <p class="text-gray-600 mb-8">Select the boosting service you need:</p>
+            
+            <div onclick="closeProductModal(); openPaymentModal('${game.title} - Rank Boost', 29.99)" class="border-2 border-gray-200 hover:border-purple-600 p-6 rounded-2xl cursor-pointer mb-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h4 class="font-semibold text-lg">Rank Boost</h4>
+                  <p class="text-gray-500">Professional boost to your desired rank</p>
+                </div>
+                <span class="text-2xl font-bold text-purple-600">$29.99</span>
+              </div>
+            </div>
+
+            <div onclick="closeProductModal(); openPaymentModal('${game.title} - Champion Boost', 89.99)" class="border-2 border-gray-200 hover:border-purple-600 p-6 rounded-2xl cursor-pointer">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h4 class="font-semibold text-lg">Champion / Grand Champion Boost</h4>
+                  <p class="text-gray-500">Highest rank boost available</p>
+                </div>
+                <span class="text-2xl font-bold text-purple-600">$89.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.add('hidden');
+    }
+
+    // Payment Modal
     function openPaymentModal(productName, price) {
-      currentProduct = { name: productName, price: price };
       document.getElementById('orderSummary').innerHTML = `
         <p class="font-medium">${productName}</p>
         <p class="text-3xl font-bold text-purple-600">$${price}</p>
@@ -246,21 +268,12 @@
       document.getElementById('paymentModal').classList.add('hidden');
     }
 
-    function selectPayment(btn) {
-      document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('border-purple-600', 'bg-purple-50'));
-      btn.classList.add('border-purple-600', 'bg-purple-50');
-    }
-
     function processPayment() {
-      const message = document.createElement('div');
-      message.style.cssText = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#10b981; color:white; padding:16px 32px; border-radius:9999px; z-index:200; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.3); text-align:center;";
-      message.innerHTML = `✅ Payment Successful!<br><span class="text-sm">Thank you for choosing Turnip Services.com</span>`;
-      document.body.appendChild(message);
-
-      setTimeout(() => {
-        message.remove();
-        closePaymentModal();
-      }, 2500);
+      const msg = document.createElement('div');
+      msg.style.cssText = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#10b981; color:white; padding:16px 32px; border-radius:9999px; z-index:200;";
+      msg.innerHTML = `✅ Payment Successful!<br><span class="text-sm">Thank you for choosing Turnip Services.com</span>`;
+      document.body.appendChild(msg);
+      setTimeout(() => { msg.remove(); closePaymentModal(); }, 2500);
     }
 
     // Login Functions
