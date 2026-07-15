@@ -54,30 +54,35 @@
             <p class="text-center text-zinc-400 mb-16">Professional boosting for every game</p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                <div onclick="showServiceModal('Forza Motorsport & Horizon')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🏎️</div>
                     <h3 class="text-2xl font-semibold mb-3">Forza Motorsport & Horizon</h3>
                     <p class="text-zinc-400">Rank boosting, car collections, tuning setups, and private coaching.</p>
+                    <button class="mt-6 w-full py-3 bg-white text-black rounded-2xl font-medium">Learn More</button>
                 </div>
-                <div class="card bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                <div onclick="showServiceModal('Rainbow Six Siege')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🛡️</div>
                     <h3 class="text-2xl font-semibold mb-3">Rainbow Six Siege</h3>
                     <p class="text-zinc-400">Secure rank boosting, operator unlocks, and high-level strategy coaching.</p>
+                    <button class="mt-6 w-full py-3 bg-white text-black rounded-2xl font-medium">Learn More</button>
                 </div>
-                <div class="card bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                <div onclick="showServiceModal('Fortnite')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🎮</div>
                     <h3 class="text-2xl font-semibold mb-3">Fortnite</h3>
                     <p class="text-zinc-400">Ranked push, battle pass completion, and tournament preparation.</p>
+                    <button class="mt-6 w-full py-3 bg-white text-black rounded-2xl font-medium">Learn More</button>
                 </div>
-                <div class="card bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                <div onclick="showServiceModal('Minecraft')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">⛏️</div>
                     <h3 class="text-2xl font-semibold mb-3">Minecraft</h3>
                     <p class="text-zinc-400">Progression boosting, rare items, building coaching and server help.</p>
+                    <button class="mt-6 w-full py-3 bg-white text-black rounded-2xl font-medium">Learn More</button>
                 </div>
-                <div class="card bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
+                <div onclick="showServiceModal('Roblox')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🕹️</div>
                     <h3 class="text-2xl font-semibold mb-3">Roblox</h3>
                     <p class="text-zinc-400">Game-specific boosting, limited items, and experience optimization.</p>
+                    <button class="mt-6 w-full py-3 bg-white text-black rounded-2xl font-medium">Learn More</button>
                 </div>
             </div>
         </div>
@@ -85,14 +90,12 @@
 
     <!-- Training -->
     <section id="training" class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-5xl font-semibold text-center mb-6">Personalized Training</h2>
-            <p class="text-center text-zinc-400 mb-12">Work 1-on-1 with experienced coaches.</p>
-            <div class="bg-zinc-900 rounded-3xl p-12 text-center">
-                <a href="#support" class="inline-block px-12 py-6 bg-white text-black font-semibold rounded-3xl text-xl hover:bg-zinc-100 transition">
-                    Book Training Session
-                </a>
-            </div>
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-semibold mb-6">Personalized Training</h2>
+            <p class="text-zinc-400 mb-8">Work directly with top-ranked coaches.</p>
+            <button onclick="bookTraining()" class="px-12 py-6 bg-white text-black font-semibold rounded-3xl text-xl hover:bg-zinc-100 transition">
+                Book Training Session
+            </button>
         </div>
     </section>
 
@@ -101,30 +104,23 @@
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-semibold mb-8">Premium Accounts</h2>
             <p class="text-zinc-400 mb-12">Verified accounts with progress and rare items.</p>
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-10">Forza / Siege</div>
-                <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-10">Fortnite / Roblox</div>
-                <div class="bg-zinc-950 border border-zinc-700 rounded-3xl p-10">Minecraft</div>
-            </div>
+            <button onclick="contactForAccount()" class="px-12 py-6 bg-white text-black font-semibold rounded-3xl text-xl hover:bg-zinc-100 transition">
+                View Available Accounts
+            </button>
         </div>
     </section>
 
     <!-- Payment -->
     <section id="payment" class="py-20">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-5xl font-semibold text-center mb-8">Payment</h2>
-            <p class="text-center text-zinc-400 mb-12">Secure payments via PayPal, Bank Transfer or Crypto</p>
-            
-            <div class="bg-zinc-900 rounded-3xl p-12">
-                <p class="text-center text-zinc-400 mb-8">To complete your order, please contact us first. We will send you a secure payment link.</p>
-                <div class="grid md:grid-cols-3 gap-6 text-center">
-                    <div class="bg-zinc-950 p-8 rounded-2xl">💳 PayPal</div>
-                    <div class="bg-zinc-950 p-8 rounded-2xl">🏦 Bank Transfer</div>
-                    <div class="bg-zinc-950 p-8 rounded-2xl">₿ Crypto</div>
+            <h2 class="text-5xl font-semibold text-center mb-8">Secure Payment</h2>
+            <div class="bg-zinc-900 rounded-3xl p-12 text-center">
+                <p class="mb-8 text-zinc-400">Choose your preferred payment method</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <button onclick="startPayment('PayPal')" class="px-8 py-4 bg-white text-black rounded-2xl font-medium">PayPal</button>
+                    <button onclick="startPayment('Bank Transfer')" class="px-8 py-4 bg-white text-black rounded-2xl font-medium">Bank Transfer</button>
+                    <button onclick="startPayment('Crypto')" class="px-8 py-4 bg-white text-black rounded-2xl font-medium">Crypto</button>
                 </div>
-                <a href="#support" class="block mt-10 w-full py-6 bg-white text-black text-center font-semibold rounded-3xl text-lg hover:bg-zinc-100 transition">
-                    Proceed to Payment
-                </a>
             </div>
         </div>
     </section>
@@ -133,20 +129,20 @@
     <section id="support" class="py-20 bg-zinc-900">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-5xl font-semibold text-center mb-3">Help & Support</h2>
-            <p class="text-center text-zinc-400 mb-12">Contact us anytime</p>
+            <p class="text-center text-zinc-400 mb-12">We respond quickly</p>
 
             <div class="grid md:grid-cols-3 gap-10 text-center">
                 <div class="bg-zinc-950 p-8 rounded-3xl">
                     <h3 class="font-semibold mb-2">Discord</h3>
-                    <a href="https://discord.gg/YOURSERVER" target="_blank" class="text-blue-400 hover:underline">discord.gg/turnipservices</a>
+                    <a href="https://discord.gg/YOURSERVER" target="_blank" class="text-blue-400 hover:underline">Join Discord</a>
                 </div>
                 <div class="bg-zinc-950 p-8 rounded-3xl">
                     <h3 class="font-semibold mb-2">Email</h3>
-                    <a href="mailto:support@turnipservices.com" class="text-blue-400 hover:underline">support@turnipservices.com</a>
+                    <a href="mailto:support@turnipservices.com" class="text-blue-400 hover:underline">Send Email</a>
                 </div>
                 <div class="bg-zinc-950 p-8 rounded-3xl">
                     <h3 class="font-semibold mb-2">Phone</h3>
-                    <a href="tel:+447000000000" class="text-blue-400 hover:underline">+44 7000 000000</a>
+                    <a href="tel:+447000000000" class="text-blue-400 hover:underline">Call Us</a>
                 </div>
             </div>
         </div>
@@ -156,7 +152,45 @@
         © 2026 Turnip Services • Not affiliated with game publishers
     </footer>
 
+    <!-- Modal -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+        <div class="bg-zinc-900 rounded-3xl p-10 max-w-lg w-full mx-4">
+            <div class="flex justify-between items-start mb-6">
+                <h3 id="modal-title" class="text-3xl font-semibold"></h3>
+                <button onclick="closeModal()" class="text-3xl leading-none">&times;</button>
+            </div>
+            <div id="modal-body" class="text-zinc-400 mb-8"></div>
+            <button onclick="closeModal()" class="w-full py-4 bg-white text-black font-semibold rounded-2xl">Close</button>
+        </div>
+    </div>
+
     <script>
+        function showServiceModal(game) {
+            document.getElementById('modal-title').textContent = game;
+            document.getElementById('modal-body').innerHTML = `
+                <p class="mb-6">Our team is ready to assist you with ${game}.</p>
+                <p class="mb-8">Message us on Discord for fast service and pricing.</p>
+            `;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function bookTraining() {
+            alert("✅ Training request received!\n\nOur team will contact you shortly on Discord or email.");
+        }
+
+        function contactForAccount() {
+            alert("✅ Account request received!\n\nPlease tell us which game and rank you need on Discord.");
+        }
+
+        function startPayment(method) {
+            alert(`✅ ${method} selected.\n\nPlease contact us on Discord to receive your secure payment link.`);
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        // Smooth scrolling for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 if (this.getAttribute('href') !== '#') {
