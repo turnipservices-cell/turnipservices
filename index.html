@@ -11,7 +11,7 @@
         .nav-link { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .nav-link:hover { color: #fff; transform: translateY(-1px); }
         .card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-8px); }
+        .card:hover { transform: translateY(-8px); border-color: #3b82f6; }
         section { scroll-margin-top: 80px; }
         .btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
@@ -37,13 +37,13 @@
 
     <!-- Hero -->
     <section class="min-h-screen bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070')] bg-cover bg-center flex items-center relative">
-        <div class="absolute inset-0 bg-black/80"></div>
+        <div class="absolute inset-0 bg-black/85"></div>
         <div class="relative max-w-6xl mx-auto px-6 text-center">
             <h1 class="text-6xl font-semibold tracking-tight mb-6">Professional Gaming Services</h1>
-            <p class="max-w-md mx-auto text-lg text-zinc-400 mb-10">Elite boosting, training & accounts for Forza, Rainbow Six Siege, Fortnite, Minecraft and Roblox.</p>
+            <p class="max-w-md mx-auto text-lg text-zinc-400 mb-10">Elite boosting, training &amp; accounts for Forza, Rainbow Six Siege, Fortnite, Minecraft and Roblox.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#services" class="px-8 py-3.5 bg-white text-black font-semibold rounded-full text-base hover:bg-zinc-100 transition">Browse Services</a>
-                <a href="#training" class="px-8 py-3.5 border border-zinc-400 font-medium rounded-full text-base hover:bg-white/10 transition">Book Training</a>
+                <a href="#training" class="px-8 py-3.5 border border-zinc-400 hover:border-white font-medium rounded-full text-base transition">Book Training</a>
             </div>
         </div>
     </section>
@@ -58,32 +58,33 @@
                 <div onclick="showServiceModal('Forza Motorsport & Horizon')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🏎️</div>
                     <h3 class="text-2xl font-semibold mb-3">Forza Motorsport & Horizon</h3>
-                    <p class="text-zinc-400">Rank boosting, car collections, tuning setups, and private coaching.</p>
-                    <button class="mt-6 w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
+                    <p class="text-zinc-400 mb-8">Rank boosting, car collections, tuning setups, and private coaching.</p>
+                    <button class="btn w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
                 </div>
+                <!-- Repeat for other games (same structure) -->
                 <div onclick="showServiceModal('Rainbow Six Siege')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🛡️</div>
                     <h3 class="text-2xl font-semibold mb-3">Rainbow Six Siege</h3>
-                    <p class="text-zinc-400">Secure rank boosting, operator unlocks, and high-level strategy coaching.</p>
-                    <button class="mt-6 w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
+                    <p class="text-zinc-400 mb-8">Secure rank boosting, operator unlocks, and high-level strategy coaching.</p>
+                    <button class="btn w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
                 </div>
                 <div onclick="showServiceModal('Fortnite')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🎮</div>
                     <h3 class="text-2xl font-semibold mb-3">Fortnite</h3>
-                    <p class="text-zinc-400">Ranked push, battle pass completion, and tournament preparation.</p>
-                    <button class="mt-6 w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
+                    <p class="text-zinc-400 mb-8">Ranked push, battle pass completion, and tournament preparation.</p>
+                    <button class="btn w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
                 </div>
                 <div onclick="showServiceModal('Minecraft')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">⛏️</div>
                     <h3 class="text-2xl font-semibold mb-3">Minecraft</h3>
-                    <p class="text-zinc-400">Progression boosting, rare items, building coaching and server help.</p>
-                    <button class="mt-6 w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
+                    <p class="text-zinc-400 mb-8">Progression boosting, rare items, building coaching and server help.</p>
+                    <button class="btn w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
                 </div>
                 <div onclick="showServiceModal('Roblox')" class="card cursor-pointer bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
                     <div class="text-4xl mb-6">🕹️</div>
                     <h3 class="text-2xl font-semibold mb-3">Roblox</h3>
-                    <p class="text-zinc-400">Game-specific boosting, limited items, and experience optimization.</p>
-                    <button class="mt-6 w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
+                    <p class="text-zinc-400 mb-8">Game-specific boosting, limited items, and experience optimization.</p>
+                    <button class="btn w-full py-3 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Learn More</button>
                 </div>
             </div>
         </div>
@@ -93,8 +94,8 @@
     <section id="training" class="py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-semibold mb-6">Personalized Training</h2>
-            <p class="text-zinc-400 mb-8">Work directly with top-ranked coaches.</p>
-            <button onclick="bookTraining()" class="px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
+            <p class="text-zinc-400 mb-8">Work directly with experienced top-ranked coaches.</p>
+            <button onclick="bookTraining()" class="btn px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
                 Book Training Session
             </button>
         </div>
@@ -104,38 +105,5 @@
     <section id="accounts" class="py-20 bg-zinc-900">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-semibold mb-8">Premium Accounts</h2>
-            <p class="text-zinc-400 mb-12">Verified accounts with progress and rare items.</p>
-            <button onclick="contactForAccount()" class="px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
-                View Available Accounts
-            </button>
-        </div>
-    </section>
-
-    <!-- Payment -->
-    <section id="payment" class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-5xl font-semibold text-center mb-8">Secure Payment</h2>
-            <div class="bg-zinc-900 rounded-3xl p-12 text-center">
-                <p class="mb-8 text-zinc-400">Choose your preferred payment method</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <button onclick="startPayment('PayPal')" class="px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">PayPal</button>
-                    <button onclick="startPayment('Bank Transfer')" class="px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Bank Transfer</button>
-                    <button onclick="startPayment('Crypto')" class="px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Crypto</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support -->
-    <section id="support" class="py-20 bg-zinc-900">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-5xl font-semibold text-center mb-3">Help & Support</h2>
-            <p class="text-center text-zinc-400 mb-12">Contact us anytime</p>
-
-            <div class="grid md:grid-cols-3 gap-10 text-center">
-                <div class="bg-zinc-950 p-8 rounded-3xl">
-                    <h3 class="font-semibold mb-2">Instagram</h3>
-                    <a href="https://instagram.com/11a.rv" target="_blank" class="text-blue-400 hover:underline">@11a.rv</a>
-                </div>
-                <div class="bg-zinc-950 p-8 rounded-3xl">
-                    <h3 class="font-semibold mb-2">
+            <p class="text-zinc-400 mb-12">Hand-verified accounts with progress and rare items.</p>
+            <button onclick="contactForAccount()" class="btn px-10 py-4 border border-zinc
