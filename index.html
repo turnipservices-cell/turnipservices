@@ -166,7 +166,6 @@
     </div>
 
     <script>
-        // Service Modal
         function showServiceModal(game) {
             document.getElementById('modal-title').textContent = game;
             document.getElementById('modal-body').innerHTML = `
@@ -176,27 +175,23 @@
             document.getElementById('modal').classList.remove('hidden');
         }
 
-        // Training Button
         function bookTraining() {
             alert("✅ Training request received!\n\nWe will contact you shortly via Instagram or email.");
         }
 
-        // Accounts Button
         function contactForAccount() {
             alert("✅ Account request received!\n\nPlease message us on Instagram with the game and rank you need.");
         }
 
-        // Payment Buttons
         function startPayment(method) {
-            alert(`✅ ${method} selected.\n\nPlease message us on Instagram to receive your secure payment link.`);
+            alert(`✅ ${method} selected.\n\nPlease message us on Instagram (@11a.rv) to receive your secure payment link.`);
         }
 
-        // Close Modal
         function closeModal() {
             document.getElementById('modal').classList.add('hidden');
         }
 
-        // Smooth scrolling for navbar links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 if (this.getAttribute('href') !== '#') {
