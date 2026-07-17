@@ -94,7 +94,7 @@
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-semibold mb-6">Personalized Training</h2>
             <p class="text-zinc-400 mb-8">Work directly with experienced top-ranked coaches.</p>
-            <button onclick="bookTraining()" class="btn px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
+            <button onclick="showActionModal('Training Request', 'We will contact you shortly via Instagram or email to schedule your session.')" class="btn px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
                 Book Training Session
             </button>
         </div>
@@ -105,7 +105,7 @@
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-semibold mb-8">Premium Accounts</h2>
             <p class="text-zinc-400 mb-12">Hand-verified accounts with progress and rare items.</p>
-            <button onclick="contactForAccount()" class="btn px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
+            <button onclick="showActionModal('Account Request', 'Please message us on Instagram with the game and rank you need.')" class="btn px-10 py-4 border border-zinc-400 hover:border-white rounded-full text-base font-medium">
                 View Available Accounts
             </button>
         </div>
@@ -118,9 +118,9 @@
             <div class="bg-zinc-900 rounded-3xl p-12 text-center">
                 <p class="mb-8 text-zinc-400">We accept PayPal, Bank Transfer & Crypto</p>
                 <div class="flex flex-wrap justify-center gap-6">
-                    <button onclick="startPayment('PayPal')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">PayPal</button>
-                    <button onclick="startPayment('Bank Transfer')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Bank Transfer</button>
-                    <button onclick="startPayment('Crypto')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Crypto</button>
+                    <button onclick="showActionModal('PayPal Selected', 'Please message us on Instagram to receive your secure payment link.')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">PayPal</button>
+                    <button onclick="showActionModal('Bank Transfer Selected', 'Please message us on Instagram to receive your secure payment link.')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Bank Transfer</button>
+                    <button onclick="showActionModal('Crypto Selected', 'Please message us on Instagram to receive your secure payment link.')" class="btn px-8 py-4 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Crypto</button>
                 </div>
             </div>
         </div>
@@ -153,15 +153,15 @@
         © 2026 Turnip Services • Not affiliated with game publishers
     </footer>
 
-    <!-- Modal -->
+    <!-- Custom Modal -->
     <div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-        <div class="bg-zinc-900 rounded-3xl p-10 max-w-lg w-full mx-4">
+        <div class="bg-zinc-900 rounded-3xl p-10 max-w-md w-full mx-4 border border-zinc-700">
             <div class="flex justify-between items-start mb-6">
-                <h3 id="modal-title" class="text-3xl font-semibold"></h3>
+                <h3 id="modal-title" class="text-2xl font-semibold"></h3>
                 <button onclick="closeModal()" class="text-3xl leading-none hover:text-white">&times;</button>
             </div>
-            <div id="modal-body" class="text-zinc-400 mb-8"></div>
-            <button onclick="closeModal()" class="btn w-full py-3.5 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Close</button>
+            <div id="modal-body" class="text-zinc-400 text-lg leading-relaxed"></div>
+            <button onclick="closeModal()" class="mt-8 w-full py-3.5 border border-zinc-400 hover:border-white rounded-2xl text-sm font-medium">Close</button>
         </div>
     </div>
 
@@ -170,21 +170,15 @@
             document.getElementById('modal-title').textContent = game;
             document.getElementById('modal-body').innerHTML = `
                 <p class="mb-6">Our team is ready to assist you with <strong>${game}</strong>.</p>
-                <p class="mb-6">Reach out on Instagram or email to get started immediately.</p>
+                <p>Reach out on Instagram or email to get started immediately.</p>
             `;
             document.getElementById('modal').classList.remove('hidden');
         }
 
-        function bookTraining() {
-            alert("✅ Training request received!\n\nWe will contact you shortly via Instagram or email.");
-        }
-
-        function contactForAccount() {
-            alert("✅ Account request received!\n\nPlease message us on Instagram with the game and rank you need.");
-        }
-
-        function startPayment(method) {
-            alert(`✅ ${method} selected.\n\nPlease message us on Instagram (@11a.rv) to receive your secure payment link.`);
+        function showActionModal(title, message) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = `<p>${message}</p>`;
+            document.getElementById('modal').classList.remove('hidden');
         }
 
         function closeModal() {
